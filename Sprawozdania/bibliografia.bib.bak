@@ -1,0 +1,45 @@
+% Encoding: UTF-8
+
+@Book{generatory1997Wieczorkowski,
+  title     = {Komputerowe generatory liczb losowych.},
+  publisher = {Wydawnictwa Naukowo-Techniczne},
+  year      = {1997},
+  author    = {Robert Wieczorkowski, Ryszard Zieliński},
+}
+
+@Book{wstep2001jakubowski,
+  title     = {Wstęp do teorii prawdopodobieństwa.},
+  publisher = {Jacek Jakubowski, Rafał Sztencel},
+  year      = {2001},
+  author    = {Jacek Jakubowski, Rafał Sztencel},
+}
+
+@Book{rachunek2006jakubowski,
+  title     = {Rachunek prawdopodobieństwa dla (prawie) wszystkich.},
+  publisher = {Jacek Jakubowski, Rafał Sztencel},
+  year      = {2006},
+  author    = {Jacek Jakubowski, Rafał Sztencel},
+}
+
+@Misc{python3,
+  title        = {Dokumentacja Python 3.7.1},
+  howpublished = {\url{https://docs.python.org/release/3.7.1/}},
+  month        = {03},
+  year         = {2019},
+}
+
+@Misc{numpy,
+  title        = {Dokumentacja biblioteki numpy},
+  howpublished = {"\url{https://docs.scipy.org/doc/}"},
+  month        = {03},
+  year         = {2019},
+}
+
+@Misc{matplotlib,
+  title        = {Dokumentacja biblioteki matplotlib},
+  howpublished = {"\url{https://matplotlib.org/contents.html}"},
+  month        = {03},
+  year         = {2019},
+}
+
+@Comment{jabref-meta: databaseType:bibtex;}

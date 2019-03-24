@@ -1,3 +1,4 @@
+import random
 import time
 from math import sqrt, log, e
 from numpy import arange
@@ -31,22 +32,23 @@ class Example:
         between = arange(start,stop, s)
         values = apply_for_all(between, self.F)
 
-        pyplot.subplot(4, 1, 1).set_title('Dystrybuanta')
+        pyplot.subplot(5, 1, 2).set_title('Dystrybuanta')
         pyplot.plot(between, values, 'o')
 
     def rozklad(self, s=0.01):
         between = arange(start, stop, s)
         values = apply_for_all(between, self.f)
 
-        pyplot.subplot(4, 1, 2).set_title('Rozklad')
+        pyplot.subplot(5, 1, 1).set_title('Rozklad')
         pyplot.plot(between, values, 'o')
 
     def histogram(self, s=0.01):
         keys = sgen.generate_random_numbers(time.time(), 1000)
+
         randoms = Generator.generate_random_numbers(keys,self)
-        pyplot.subplot(4, 1, 3).set_title('Histogram')
+        pyplot.subplot(5, 1, 3).set_title('Histogram')
         pyplot.hist(randoms,40)
-        pyplot.subplot(4, 1, 4).set_title('Wartosci')
+        pyplot.subplot(5, 1, 4).set_title('Wartosci')
         pyplot.plot(randoms, range(len(keys)), '*')
 
 

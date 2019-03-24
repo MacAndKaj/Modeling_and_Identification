@@ -1,0 +1,200 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[polish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\usepackage{float}
+\usepackage{url}
+\usepackage{subcaption}
+\usepackage{cite}
+\author{Maciej Kajdak \\ Nr indeksu: 226256}
+\title{Sprawozdanie 1 \\ \textbf{Modelowanie i Identyfikacja}}
+\renewcommand{\thesection}{\arabic{section}}
+
+\begin{document}
+\maketitle
+\section{Wstęp}
+Przy generowaniu liczb losowych w najprostszym przypadku można posłużyć się tzw. generatorami fizycznymi. Do nich można zaliczyć chociażby rzut monetą (losowanie liczb ze zbiory ${0,1}$) lub pobieranie co pewien kwant czasu próbki z przebiegu pewnego szumu elementu elektronicznego. 
+Takie rozwiązania są jednak pod wieloma względami niepraktyczne. Postęp, któremu z biegiem lat ulega nauka i technologia pozwala na coraz coraz wydajniejsze programowe generowanie liczb losowych.
+Do celu generowania liczb można wykorzystać np.\ generatory liczb losowych o rozkładzie równomiernym. 
+Wśród nich najczęściej spotykane są generatory liniowe, nieliniowe, Fibonacciego lub generatory oparte na rejestrach przesuwnych.
+Chcąc wygenerować liczby losowe o dowolnym rozkładzie prawdopodobieństwa również można posłużyć się algorytmami powszechnie znanymi, takimi jak np.\ metoda odwracania dystrybuanty albo metoda eliminacji.
+Ważnym aspektem generacji liczb losowych jest także testowanie generatorów.
+Dzięki temu możliwe jest ocenianie jakości generatora pod konkretnym kątem.
+W niniejszym sprawozdaniu opisane zostały wyniki badań, którym zostały poddane różne algorytmy generowania liczb losowych.
+Generatory implementowano w środowisku Python w wersji 3.7.1 \cite{python3} wraz z pakietami numpy w wersji 1.15.4 \cite{numpy} oraz matplotlib w wersji 3.0.2 \cite{matplotlib}.
+Wszystkie stworzone w ramach laboratoriów skrypty można znaleźć w \href{https://github.com/MacAndKaj/Modeling\_and\_Identification}{\underline{repozytorium twórcy w serwisie Github}}
+
+\section{Generator liczb losowych o rozkładzie jednostajnym}
+Jednostajny (równomierny) rozkład prawdopodobieństwa na przedziale $[a,b]$ charakteryzuje się tym, że jego gęstośc na tym przedziale jest stała i różna od zera, a poza wspomnianym przedziałem przyjmuje wartości $0$ jak zostało to przedstawione na rysunku \ref{fig:jednostajny}.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=.6\textwidth]{../Obrazy/rownomierny.png} 
+\caption{Gęstość rozkładu jednostajnego.}
+\label{fig:jednostajny}
+\end{figure}
+
+Zaimplementowano i przetestowano 2 rodzaje generatorów: oparty na przebiegu piłokształtnym oraz generator liniowy. 
+Wyniki badań zostały przedstawione w dalszej części sprawozdania.
+
+\subsection{Generator oparty na przekształceniu piłokształtnym}
+Sygnał piłokształtny zawdzięcza swoją nazwę graficznej reprezentacji, która przypomina zęby piły (rysunek \ref{fig:pila}). Odpowiednie próbkowanie takiego sygnału pozwala na generowanie liczb losowych o rozkładzie jednostajnym.
+\begin{figure}[!h]
+\centering
+\includegraphics[width=.6\textwidth]{../Obrazy/pila.png} 
+\caption{Przebieg piłokształtny o 7 ,,zębach'' wygenerowany na przedziale $[0,1)$ w środowisku Python}
+\label{fig:pila}
+\end{figure}
+
+Generacja liczb losowych z takiego przebiegu opiera się o algorytm, którego istotą jest równanie \ref{eq:pila}. 
+
+
+\begin{equation}\label{eq:pila}
+X_{n+1} = X_{n} \cdot Z - \lfloor X_{n} \cdot Z \rfloor
+\end{equation}
+
+\begin{figure}[H]
+\centering
+\begin{subfigure}{\textwidth}
+\includegraphics[width=\textwidth]{../Obrazy/pila1.png} 
+\end{subfigure}
+\begin{subfigure}{\textwidth}
+\includegraphics[width=\textwidth]{../Obrazy/pila2.png} 
+\end{subfigure}
+\begin{subfigure}{\textwidth}
+\includegraphics[width=\textwidth]{../Obrazy/pila3.png} 
+\end{subfigure}
+\caption{Histogramy generowanych próbek z przebiegu piłokształtnego}
+\label{fig:pila1}
+\end{figure}
+
+Jak można od razu zauważyć dla liczby zębów piły, czyli $Z=1$ histogram przedstawia 1 słupek.
+Dzieje się tak, gdyż równanie \ref{eq:pila} przyjmuje w takim wypadku postać \ref{eq:pilaZ1} co oznacza, że każdy kolejny element jest powtórzeniem poprzedniego.
+Dodatkowo dla parzystej liczby zębów również występuje problem skupienia zdecydowanej większości liczb w jednym przedziale.
+Sprawdzając poszczególne liczby wygenerowane dla takiej ilości ,,zębów'' (rysunek \ref{fig:pilaZ2} ) można zauważyć, że liczby generowane są na całym przedziale, lecz po pewnym czasie wszystkie liczby są zerami. Dzieje się tak dlatego, że podczas mnożenia przez 2 w pewnym momencie ,,zerują się'' dalsze miejsca po przecinku co prowadzi do sytuacji, gdzie każda kolejna liczba będzie zerem.
+
+
+\begin{equation}\label{eq:pilaZ1}
+X_{n+1} = X_{n} - \lfloor X_{n}\rfloor
+\end{equation}
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=.6\textwidth]{../Obrazy/pilaZ2.png} 
+\caption{Wykres kolejnych generowanych liczb dla liczby ,,zębów'' piły równej 2}
+\label{fig:pilaZ2}
+\end{figure}
+
+\subsection{Generator liniowy}
+Badając o właściwości generatorów liniowych ma się na myśli generatory zapisywane w postaci przedstawionej jako równanie \ref{eq:liniowy}
+
+\begin{equation}\label{eq:liniowy}
+X_{n+1} = (a_{1} \cdot X_{n} + a_{2} \cdot X_{n-1} + a_{3} \cdot X_{n-2} + ... + a_{k} \cdot X_{n-k+1} + c )\ mod\ m
+\end{equation}
+, gdzie $a_{1} - a_{k},\ c,\ m$ są pewnymi stałymi parametrami generatora, a operacja $mod\ m$ oznacza wyznaczanie reszty z dzieleia przez $m$.
+
+W szczególnym przypadku, gdy $k=0$ to opis generatora przyjmuje postać równania \ref{eq:liniowyk0}.
+Co więcej jeżeli $c = 0$ to taki generator nazywany jest generatorem multiplikatywnym, z kolei, gdy $c \neq 0$ -- generatorem mieszanym.
+\begin{equation}\label{eq:liniowyk0}
+X_{n+1} = (a \cdot X_{n}+ c )\ mod\ m
+\end{equation}
+
+Do celów badań zaimplementowano 3 generatory multiplikatywne oraz generator mieszany, a ich parametry przedstawiono w tabeli \ref{tab:parametry}.
+Zestawy parametrów zaczerpnięto z książki Wieczorkowskiego i Zielińskiego \cite{generatory1997Wieczorkowski}.
+Wygenerowano przy jego pomocy po 1000 liczb dla każdego zestawu parametrów. 
+Wyniki przedstawiono w postaci histogramu dzielącego przedział $[0,m)$ na 10 podprzedziałów.
+Histogram został przedstawiony na rysunku \ref{fig:histLiniowy}.
+Jak widać histogramy przypominają (z niewielkimi odchyleniami) wykres gęstości rozkładu jednostajnego.
+
+
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+\textbf{a} & \textbf{c} & \textbf{m} & \textbf{Źródło} \\
+\hline
+$69069$ & $1$ & $2^{32}$ & Marsaglia (1972) \\
+\hline
+$40692$ & $0$ & $2^{31}-249$ & L'Ecuyer (1988) \\
+\hline
+$2^{2} \cdot 23^{7} + 1$ & $0$ & $2^{35}$ & Zielinski (1966) \\
+\hline
+$1099087573$ & $0$ & $2^{32}$ & Fishman (1990) \\
+\hline
+\end{tabular}
+\caption{Tabela parametrów generatorów liniowych.}
+\label{tab:parametry}
+\end{center}
+\end{table}
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{../Obrazy/histLiniowy.png} 
+\caption{Histogramy wyników generacji liczb losowych generatora liniowego dla poszczególnych zestawów parametrów.}
+\label{fig:histLiniowy}
+\end{figure}
+
+
+\section{Metoda odwrotnej dystrybuanty}
+Chcąc wygenerować liczby losowe o dowolnym rozkładzie można wykorzystać algorytm nazywany metodą odwrotnej dystrybuanty.
+Jak sama nazwa wskazuje, bazuje ona na wykorzystaniu dystrybuanty rozkładu do generowania liczb.
+Podstawowym jednak założeniem jest, że ,,jeżeli istnieje gęstość g rozkładu $\mu$ na $\textbf{R}$, to $	F_{\mu}(t) = \int_{-\infty}^{t}g(x)dx $''\cite{wstep2001jakubowski}. 
+Dodatkowo niech U będzie zmienną losową o rozkładzie jednostajnym na $[0,1)$.
+Dzięki takim założeniom można wyznaczyć nową zmienną losową $X = F^{-1}(U)$, wtedy zmienna losowa $X$ ma rozkład prawdopodobieństwa o dystrybuancie $F$.
+Zatem generując ciąg liczb $X_{i} = F^{-1}(U_{i})$ otrzymuje się ciąg liczb losowych o rozkładzie z dystrybuantą F.
+
+
+\noindent
+W taki sposób zaimplementowano 4 generatory liczb losowych o rozkładach:
+\begin{itemize}
+\item równomiernym,
+\item trójkątnym,
+\item wykładniczym,
+\item Laplace'a.
+\end{itemize}
+
+
+\subsection{Rozkład równomierny}
+Gęstość rozkładu prawdopodobieństwa dla implementowanego generatora wynosi:
+\begin{equation}
+f(x) = \begin{cases} 2x, & \mbox{dla } x \in [0,1] \\ 0, & \mbox{dla } x \in (-\infty,0) \bigcup (1,\infty) \end{cases}
+\end{equation}
+
+
+
+\subsection{Rozkład trójkątny}
+Gęstość rozkładu prawdopodobieństwa dla implementowanego generatora wynosi:
+\begin{equation}
+f(x) = \begin{cases} x + 1, & \mbox{dla } x \in (-1,0) \\ x - 1, & \mbox{dla } x \in [0,1) \\ 0, & \mbox{dla } x \not\in (-1,1) \end{cases}
+\end{equation}
+
+
+\subsection{Rozkład wykładniczy}
+Gęstość rozkładu prawdopodobieństwa dla implementowanego generatora wynosi:
+\begin{equation}
+f(x) = e^{-x},\ x \geq 0
+\end{equation}
+
+\subsection{Rozkład Laplace'a}
+
+\section{Metoda odrzucania}
+\subsection{Rozkład równomierny}
+\subsection{Rozkład wykładniczy}
+\subsection{Rozkład Laplace'a}
+
+
+\section{Wnioski}
+
+\bibliographystyle{plabbrv} 
+
+\bibliography{../bibliografia}
+
+\end{document}

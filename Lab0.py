@@ -37,10 +37,14 @@ class SawtoothGenerator(Generator):
             iter += 1
         return sawtooth, values
 
-    def show_sawtooth_wave(self):
-        pyplot.plot(self._sawtooth.keys(),
-                    self._sawtooth.values(),
-                    '*')
+    def show_sawtooth_wave(self, interpolate=True):
+        if interpolate:
+            pyplot.plot(self._sawtooth.keys(),
+                        self._sawtooth.values(),
+                        '*')
+        else:
+            pyplot.plot(self._sawtooth.keys(),
+                        self._sawtooth.values())
         pyplot.show()
 
     def generate_random_numbers(self, seed: float, number: int) -> list:
@@ -80,39 +84,51 @@ class ModGenerator(Generator):
 
 
 if __name__ == '__main__':
-    # pyplot.figure(1)
-    # czestotliwosci = range(1,5)
-    # for val in czestotliwosci:
-    #     sgen = SawtoothGenerator(val)
-    #     pyplot.subplot(len(czestotliwosci),1,czestotliwosci.index(val)+1).set_title('Czestotliwosc = '+str(val))
-    #     pyplot.hist(sgen.generate_random_numbers(time.time(),1000),20)
-    #
-    # pyplot.figure(2)
-    # czestotliwosci = range(5,10)
-    # for val in czestotliwosci:
-    #     sgen = SawtoothGenerator(val)
-    #     pyplot.subplot(len(czestotliwosci),1,czestotliwosci.index(val)+1).set_title('Czestotliwosc = '+str(val))
-    #     pyplot.hist(sgen.generate_random_numbers(time.time(),1000),20)
-    #
-    # pyplot.figure(3)
-    # czestotliwosci = [123,333,777,800]
-    # for val in czestotliwosci:
-    #     sgen = SawtoothGenerator(val)
-    #     pyplot.subplot(len(czestotliwosci),1,czestotliwosci.index(val)+1).set_title('Czestotliwosc = '+str(val))
-    #     pyplot.hist(sgen.generate_random_numbers(time.time(),1000),20)
+    fig = pyplot.figure(1)
+    fig.text(0.5, 0.04, 'Wygenerowane liczby', ha='center', va='center')
+    fig.text(0.06, 0.5, 'Liczba probek', ha='center', va='center', rotation='vertical')
 
-    params = [(), (16807, 0, 2 ** 31 - 1), (40692, 0, 2 ** 31 - 249), ((2 ** 2) * (23 ** 7) + 1, 0, 2 ** 35),
-              (1099087573, 0, 2 ** 32)]
-    names = ['Marsaglia','Carta','L\'Ecuyer','Zielinski','Fishman']
-    num = 1
-    for param in params:
-        pyplot.figure(num)
-        mgen = ModGenerator()
-        numbers = mgen.generate_random_numbers(time.time(), 1000)
-        print(numbers)
-        pyplot.title(names[num-1])
-        pyplot.hist(numbers,12)
-        num += 1
-    pyplot.show()
+    czestotliwosci = range(1,5)
+    for val in czestotliwosci:
+        sgen = SawtoothGenerator(val)
+        pyplot.subplot(len(czestotliwosci),1,czestotliwosci.index(val)+1).set_title('Liczba zebow = '+str(val))
+        liczby = sgen.generate_random_numbers(time.time(), 1000)
+        pyplot.hist(liczby,20)
 
+    fig2 = pyplot.figure(2)
+    fig2.text(0.5, 0.04, 'Wygenerowane liczby', ha='center', va='center')
+    fig2.text(0.06, 0.5, 'Liczba probek', ha='center', va='center', rotation='vertical')
+    czestotliwosci = range(5,10)
+    for val in czestotliwosci:
+        sgen = SawtoothGenerator(val)
+        pyplot.subplot(len(czestotliwosci),1,czestotliwosci.index(val)+1).set_title('Liczba zebow = '+str(val))
+        liczby = sgen.generate_random_numbers(time.time(), 1000)
+        pyplot.hist(liczby, 20)
+
+    fig3 = pyplot.figure(3)
+    fig3.text(0.5, 0.04, 'Wygenerowane liczby', ha='center', va='center')
+    fig3.text(0.06, 0.5, 'Liczba probek', ha='center', va='center', rotation='vertical')
+    czestotliwosci = [123,333,777,800]
+    for val in czestotliwosci:
+        sgen = SawtoothGenerator(val)
+        pyplot.subplot(len(czestotliwosci),1,czestotliwosci.index(val)+1).set_title('Liczba zebow = '+str(val))
+        liczby = sgen.generate_random_numbers(time.time(), 1000)
+        pyplot.hist(liczby, 20)
+
+    # params = [(), (40692, 0, 2 ** 31 - 249), ((2 ** 2) * (23 ** 7) + 1, 0, 2 ** 35), (1099087573, 0, 2 ** 32)]
+    # names = ['Marsaglia (1972)', 'L\'Ecuyer (1988)', 'Zielinski (1966)', 'Fishman (1990)']
+    # num = 1
+    #
+    #
+    # fig = pyplot.figure(1)
+    # fig.text(0.5, 0.04, 'Wygenerowane liczby', ha='center', va='center')
+    # fig.text(0.06, 0.5, 'Liczba probek', ha='center', va='center', rotation='vertical')
+    #
+    # for param in params:
+    #     mgen = ModGenerator()
+    #
+    #     numbers = mgen.generate_random_numbers(time.time(), 1000)
+    #     pyplot.subplot(2, 2, num).set_title(names[num-1])
+    #     pyplot.hist(numbers, 10)
+    #     num += 1
 sgen = SawtoothGenerator(777)
