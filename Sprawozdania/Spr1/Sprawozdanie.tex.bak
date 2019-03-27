@@ -16,7 +16,7 @@
 \author{Maciej Kajdak \\ Nr indeksu: 226256}
 \title{Sprawozdanie 1 \\ \textbf{Modelowanie i Identyfikacja}}
 \renewcommand{\thesection}{\arabic{section}}
-
+\DeclareMathOperator*{\E}{\mathbb{E}}
 \begin{document}
 \maketitle
 \section{Wstęp}
@@ -108,7 +108,7 @@ X_{n+1} = (a \cdot X_{n}+ c )\ mod\ m
 
 Do celów badań zaimplementowano 3 generatory multiplikatywne oraz generator mieszany, a ich parametry przedstawiono w tabeli \ref{tab:parametry}.
 Zestawy parametrów zaczerpnięto z książki Wieczorkowskiego i Zielińskiego \cite{generatory1997Wieczorkowski}.
-Wygenerowano przy jego pomocy po 1000 liczb dla każdego zestawu parametrów. 
+Wygenerowano przy jego pomocy po 100000 liczb dla każdego zestawu parametrów. 
 Wyniki przedstawiono w postaci histogramu dzielącego przedział $[0,m)$ na 10 podprzedziałów.
 Histogram został przedstawiony na rysunku \ref{fig:histLiniowy}.
 Jak widać histogramy przypominają (z niewielkimi odchyleniami) wykres gęstości rozkładu jednostajnego.
@@ -204,7 +204,7 @@ f(x) = e^{-x},\ x \geq 0
 
 \subsection{Rozkład Laplace'a}
 Gęstość rozkładu Laplace'a w ogólnym przypadku przedstawia się jako:
-\begin{equation}
+\begin{equation}\label{eq:laplace}
 f(x) = \frac{1}{2b}\begin{cases} e^{-\frac{\mu-x}{b}}, & \mbox{dla } x < \mu \\ e^{-\frac{x-\mu}{b}}, & \mbox{dla } x \leq \mu\end{cases}
 \end{equation}
 
@@ -224,21 +224,99 @@ Dodatkowo wymagane jest istnienie parametru $c>0$  dla którego spełniona jest 
 \begin{equation}\label{eq:c_odrzucania}
 f(x) \leq cg(x),\ dla\ x\in\textbf{R}
 \end{equation}
+
 \subsection{Rozkład trójkątny}
 Dla przykładu przyjęto funkcję gęstości rozkładu prawdopodobieństwa z równania \ref{eq:trojkatny}, czyli rozkładu trójkątnego.
-Dodatkowo przyjęto funkcję pomocniczą przedstawioną jako:
+Dodatkowo przyjęto funkcję pomocniczą ograniczającą funkcję gęstości rozkładu, z którego miały zostać wygenerowane liczby losowe przyjęto rozkład równomierny w postaci \ref{eq:rownomierny}.
+Oczekiwano, że histogram próbek wygenerowanych przy pomocy metody odrzucania, dla tego przypadku będzie przypominał rozkład trójkątny.
 
-%\begin{equation}
-%
-%\end{equation}
+\begin{equation}\label{eq:rownomierny}
+f(x) = \begin{cases} \frac{1}{b-a}, & \mbox{dla } x \in [a,b] \\ 0 , & \mbox{dla } x \not\in [a,b] \end{cases}
+\end{equation}
+
+Na rysunku zostały przedstawione wykresy wynikowe dla generowanych próbek
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=.9\textwidth]{../Obrazy/odrzucania1.png} 
+\caption{Metoda odrzucania zastosowana dla funkcji gęstości rozkładu trójkątnego. Wykresy $f(x)$ oraz $cg(x)$ a także histogram wygenerowanych próbek.}
+\label{fig:odrzucania1}
+\end{figure}
+
+\subsection{Rozkład kłopotliwy}
+Dla kolejnego rozkładu przedstawionego w postaci \ref{eq:klopotliwy} jako funkcji pomocniczej $g$ użyto również rozkładu normalnego na przedziale $(0,1]$.
+W tym przypadku jednak warunkiem wydajnej i właściwej pracy algorytmu jest dobranie odpowiedniego $c$ zapewniającego, że większość próbek nie będzie pobierana z przedziały $(0,\frac{1}{100}$, aby pokazać wpływ parametru na wynik generowania próbek wybrano współczynnik $c=1$.
+\begin{equation}\label{eq:klopotliwy}
+f(x) = \begin{cases} 50, & \mbox{dla } x \in (0,\frac{1}{100}] \\ c , & \mbox{dla } x \not\in (\frac{1}{100},1] \end{cases}
+\end{equation}
+
+Na wykresach z rysunku \ref{fig:odrzucania2} przedstawiono wyniki generowania próbek liczb losowych z wyżej wspomnianego rozkładu.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=.9\textwidth]{../Obrazy/odrzucania2.png} 
+\caption{Metoda odrzucania w kłopotliwym przypadku. Wykresy $f(x)$ oraz $cg(x)$ a także histogram wygenerowanych próbek.}
+\label{fig:odrzucania2}
+\end{figure}
+
+\subsection{Rozkład z funkcją gęstości w kształcie półokręgu}
+Kolejnym przykładem był rozkład, którego wykres funkcji gęstości ma być półokręgiem o danym promieniu.
+Dodatkowo założeniem jest, aby wartość oczekiwana takiego rozkładu była równa 0.
+W takim przypadku przyjęto gęstość rozkładu prawdopodobieństwa \ref{eq:polokreg}.
+Dodatkowo w założeniach przyjęto $r=1$
+Z tego powodu wartość oczekiwana wynosi $0$, co mozna zobaczyć w 
+
+\begin{equation}\label{eq:polokreg}
+f(x) = \begin{cases} \sqrt{r^{2} - x^{2}}, & \mbox{dla } x \in [-r,r] \\ 0 , & \mbox{dla } x \not\in [-r,r] \end{cases}
+\end{equation}
+
+\begin{equation}\label{eq:wartoscoczekiwana}
+\E X = \int_{-\infty}^{+\infty}xf(x) \rightarrow \E X = \int_{-1}^{1}x\sqrt{1-x^{2}} = (-\frac{1}{3}(1-x^{2})^{\frac{3}{2}})|_{-1}^{1} = 0
+\end{equation}
 
 
+Na rysunku \ref{fig:odrzucania3} widać, że histogram wygenerowanych liczb losowych przy pomocy metody odrzucania przypomina rozkład funkcji $f$, co potwierdza 
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=.9\textwidth]{../Obrazy/odrzucania3.png} 
+\caption{Metoda odrzucania zastosowana dla funkcji gęstości w kształcie półokręgu. Wykresy $f(x)$ oraz $cg(x)$ a także histogram wygenerowanych próbek.}
+\label{fig:odrzucania3}
+\end{figure}
+
+\subsection{Generowanie liczb z rozkładu normalnego przy pomocy rozkładu Laplace'a}
+Ostatnim zaimplementowanym generatorem był generator rozkładu normalnego $\mathcal{N}(0,1)$.
+Do generowania liczb losowych przyjęto funkcję przedstawioną jako \ref{eq:odrzucaniaNorm}.
+W tym momencie potrzebna jest funkcja, która spełnia zależność \ref{eq:c_odrzucania}.
+Do tego celu wykorzystano generator zaimplementowany na bazie metody odwracania dystrybuanty (\ref{eq:laplace}).
+Można również pokazać, że aby (\ref{eq:c_odrzucania}) było spełnione to należy przyjąć $c=\sqrt{\frac{2e}{\pi}}$.
+
+\begin{equation}\label{eq:odrzucaniaNorm}
+f(x)=\frac{1}{\sqrt{2\pi}}e^{-\frac{x^{2}}{2}}
+\end{equation}
+
+Przy takich założeniach zaimplementowano generator liczb losowych z rozkładu normalnego.
+Wyniki generowania 10000 próbek w postaci wykresów funkcji oraz histogramu wygenerowanych próbek przedstawiono na rysunku \ref{fig:odrzucania4}.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=.9\textwidth]{../Obrazy/odrzucania4.png} 
+\caption{Metoda odrzucania wykorzystana do generowania liczb losowych o rozkładzie normalnym z rozkładu Laplace'a. Wykresy $f(x)$ oraz $cg(x)$ a także histogram wygenerowanych próbek.}
+\label{fig:odrzucania4}
+\end{figure}
 
 \section{Wnioski}
 \begin{itemize}
+\item Jak widać histogram próbek liczb losowych generowanych z nieznanego rozkładu może dostarczać informacji o samym rozkładzie, gdyż przypomina on funkcję gęstości tego rozkładu.
 \item Na podstawie badań metody odrwotnej dystrybuanty można powiedzieć, że jest metoda dość uniwersalna, pozwalająca generować liczby losowe o dowolnym rozkładzie (przy założeniu, że funkcja gęstości rozkładu prawdopodobieństwa jest całkowalna).
 Dla prostych do odwrócenia funkcji nie widać w niej większych wad, jednak gdyby chcieć uzyskać generator z funkcji, której dystrybuanta jest niezwykle trudna do odwrócenia zadanie może się znacząco skomplikować.
+\item Podstawowym problemem powstającym podczas używania metody odrzucania okazuje się poszukiwanie funkcji pomocniczej $g$ ponieważ trzeba je dobierać odpowiednio w zależności od przyjętej funkcji $f$.
+\item Dodatkowo przyjęte $g$ dla metody odrzucania powinno "ciasno opasać" gęstość $g$, dzięki czemu uzyskuje się mniejszą przestrzeń pomiędzy obiema gęstościami, co gwarantuje większe prawdopodobieństwo przyjęcia.
 \end{itemize}
+
+\nocite{rachunek2006jakubowski}
+\nocite{mzykGeneracja}
+\nocite{rejectionMethodSigman}
 \bibliographystyle{plabbrv} 
 
 \bibliography{../bibliografia}

@@ -6,45 +6,45 @@ Database file #1: ../bibliografia.bib
 Warning--to sort, need author or key in python3
 Warning--to sort, need author or key in numpy
 Warning--to sort, need author or key in matplotlib
-You've used 5 entries,
+You've used 8 entries,
             2129 wiz_defined-function locations,
-            524 strings with 4288 characters,
-and the built_in function-call counts, 945 in all, are:
-= -- 86
-> -- 17
+            537 strings with 4697 characters,
+and the built_in function-call counts, 1580 in all, are:
+= -- 145
+> -- 38
 < -- 0
-+ -- 9
-- -- 4
-* -- 42
-:= -- 139
-add.period$ -- 12
-call.type$ -- 5
-change.case$ -- 15
++ -- 18
+- -- 10
+* -- 66
+:= -- 247
+add.period$ -- 21
+call.type$ -- 8
+change.case$ -- 26
 chr.to.int$ -- 0
-cite$ -- 8
-duplicate$ -- 45
-empty$ -- 114
-format.name$ -- 4
-if$ -- 216
+cite$ -- 11
+duplicate$ -- 71
+empty$ -- 180
+format.name$ -- 10
+if$ -- 354
 int.to.chr$ -- 0
-int.to.str$ -- 5
-missing$ -- 4
-newline$ -- 25
-num.names$ -- 4
-pop$ -- 40
+int.to.str$ -- 8
+missing$ -- 6
+newline$ -- 40
+num.names$ -- 10
+pop$ -- 64
 preamble$ -- 1
-purify$ -- 12
+purify$ -- 21
 quote$ -- 0
-skip$ -- 33
+skip$ -- 53
 stack$ -- 0
-substring$ -- 25
-swap$ -- 5
+substring$ -- 40
+swap$ -- 8
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 16
+type$ -- 26
 warning$ -- 3
-while$ -- 4
-width$ -- 6
-write$ -- 46
+while$ -- 10
+width$ -- 9
+write$ -- 76
 (There were 3 warnings)

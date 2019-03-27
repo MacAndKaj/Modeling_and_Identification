@@ -8,8 +8,8 @@ from abc import abstractmethod
 
 
 nr_of_samples = 100000
-start = -5
-stop = 5
+start = -2
+stop = 2
 
 
 def apply_for_all(elements, func,c=1):
@@ -54,7 +54,10 @@ class Example:
         pyplot.plot(between, values, 'o')
 
     def histogram(self, s=0.01):
-        keys = sgen.generate_random_numbers(time.time(), nr_of_samples)
+        keys = []
+        for i in range(nr_of_samples):
+            keys.append(random.uniform(0,1))
+        # keys = sgen.generate_random_numbers(time.time(), nr_of_samples)
 
         randoms = Generator.generate_random_numbers(keys, self)
         pyplot.subplot(5, 1, 4).set_title('Histogram')
@@ -164,9 +167,9 @@ def all(Ex, numOfFigure):
 
 
 if __name__ == '__main__':
-    all(Ex1(),1)
-    all(Ex2(),2)
-    all(Ex3(),3)
+    # all(Ex1(),1)
+    # all(Ex2(),2)
+    # all(Ex3(),3)
     all(Ex4(), 4)
     all(Ex4(10), 5)
     all(Ex4(10,2), 6)

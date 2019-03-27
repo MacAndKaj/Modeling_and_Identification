@@ -17,9 +17,27 @@ R.~S. Jacek~Jakubowski.
 \newblock {\em Wstęp do teorii prawdopodobieństwa.}
 \newblock Jacek Jakubowski, Rafał Sztencel, 2001.
 
+\bibitem{rachunek2006jakubowski}
+R.~S. Jacek~Jakubowski.
+\newblock {\em Rachunek prawdopodobieństwa dla (prawie) wszystkich.}
+\newblock Jacek Jakubowski, Rafał Sztencel, 2006.
+
+\bibitem{mzykGeneracja}
+\relax{Dr} hab. inż Grzegorz Mzyk~prof PWr.
+\newblock Generacja liczb losowych o różnych rozkładach.
+\newblock \url{http://staff.iiar.pwr.wroc.pl/grzegorz.mzyk/kmi/kmi03.pdf}, 03
+  2019.
+
 \bibitem{generatory1997Wieczorkowski}
 R.~Z. Robert~Wieczorkowski.
 \newblock {\em Komputerowe generatory liczb losowych.}
 \newblock Wydawnictwa Naukowo-Techniczne, 1997.
+
+\bibitem{rejectionMethodSigman}
+K.~Sigman.
+\newblock Acceptance-rejection method.
+\newblock
+  \url{http://www.columbia.edu/~ks20/4703-Sigman/4703-07-Notes-ARM.pdf}, 03
+  2019.
 
 \end{thebibliography}

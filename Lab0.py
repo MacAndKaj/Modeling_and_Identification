@@ -5,7 +5,7 @@ from typing import Any
 
 from numpy import arange
 from matplotlib import pyplot
-nr_of_samples = 100000
+nr_of_samples = 1000000
 
 class Generator(object):
 
@@ -113,7 +113,7 @@ if __name__ == '__main__':
     fig3 = pyplot.figure(3)
     fig3.text(0.5, 0.04, 'Wygenerowane liczby', ha='center', va='center')
     fig3.text(0.06, 0.5, 'Liczba probek', ha='center', va='center', rotation='vertical')
-    czestotliwosci = [123,333,777,800]
+    czestotliwosci = [119,123,333,777]
     for val in czestotliwosci:
         sgen = SawtoothGenerator(0, 1, val)
         pyplot.subplot(len(czestotliwosci),1,czestotliwosci.index(val)+1).set_title('Liczba zebow = '+str(val))
@@ -134,9 +134,9 @@ if __name__ == '__main__':
     # for param in params:
     #     mgen = ModGenerator()
     #
-    #     numbers = mgen.generate_random_numbers(time.time(), 1000)
+    #     numbers = mgen.generate_random_numbers(time.time(), nr_of_samples)
     #     pyplot.subplot(2, 2, num).set_title(names[num-1])
-    #     pyplot.hist(numbers, 10)
+    #     pyplot.hist(numbers, 20)
     #     num += 1
     pyplot.show()
-sgen = SawtoothGenerator(0,1,777)
+sgen = SawtoothGenerator(0,1,119)

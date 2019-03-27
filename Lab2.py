@@ -64,6 +64,8 @@ class Ex2(Example):
     def f(self, x):
         if 0 < x <= 0.01:
             return 50
+        if 0.01 < x <= 1:
+            return 1
         return 0
 
     def g(self, x):
@@ -83,7 +85,7 @@ class Ex3(Example):
     def __init__(self, r) -> None:
         super().__init__()
         self._r = r
-        self._uniformGen = Lab0.SawtoothGenerator(-r,r,777)
+        self._uniformGen = Lab0.SawtoothGenerator(-r, r, 119)
 
     def f(self, x):
         if -self._r <= x <= self._r:
@@ -92,13 +94,11 @@ class Ex3(Example):
 
     def g(self, x):
         if -self._r < x < self._r:
-            return 1 / (2*self._r)
+            return 1 / (2 * self._r)
         return 0
 
     def generate_X(self):
-        return random.uniform(-self._r, self._r)
-
-
+        return random.uniform(-self._r,self._r)
 
 
 ex3 = Ex3(1)
@@ -121,7 +121,7 @@ ex4 = Ex4()
 
 def elimination_method(Ex, c):
     while True:
-        u = sgen.generate_random_numbers(time(), 1)[0]
+        u = random.uniform(0,1)
         x = Ex.generate_X()
         if c * Ex.g(x) * u <= Ex.f(x):
             return x
@@ -143,13 +143,14 @@ def ex1_check():
 
     pyplot.figure(1)
     pyplot.subplot(2, 1, 1).set_title('Gęstość rozkladu')
-    pyplot.plot(between, values2, 'o')
-    pyplot.plot(between, values1, '*')
+    pyplot.plot(between, values2, 'o', label='cg(x)')
+    pyplot.plot(between, values1, '*', label='f(x)')
+    pyplot.legend(bbox_to_anchor=(0., 1.02, 1., .102), loc='lower left',
+                  ncol=2, mode="expand", borderaxespad=0.)
 
     pyplot.subplot(2, 1, 2).set_title('Histogram wygenerowanych liczb')
     pyplot.hist(randoms, 40)
     pyplot.show()
-
 
 
 def ex2_check():
@@ -157,17 +158,18 @@ def ex2_check():
     between = arange(-2, 2, 0.0001)
     values1 = Lab1.apply_for_all(between, ex2.f)
     values2 = Lab1.apply_for_all(between, ex2.g, c_param)
-    randoms = generate_random_numbers(ex2, c_param, nr_of_samples)
+    randoms = generate_random_numbers(ex2, 50, nr_of_samples)
 
     pyplot.figure(2)
     pyplot.subplot(2, 1, 1).set_title('Gęstość rozkladu')
-    pyplot.plot(between, values2, 'o')
-    pyplot.plot(between, values1, '*')
+    pyplot.plot(between, values2, 'o', label='cg(x)')
+    pyplot.plot(between, values1, '*', label='f(x)')
 
+    pyplot.legend(bbox_to_anchor=(0., 1.02, 1., .102), loc='lower left',
+                  ncol=2, mode="expand", borderaxespad=0.)
     pyplot.subplot(2, 1, 2).set_title('Histogram wygenerowanych liczb')
     pyplot.hist(randoms, 40)
     pyplot.show()
-
 
 
 def ex3_check():
@@ -179,8 +181,11 @@ def ex3_check():
 
     pyplot.figure(3)
     pyplot.subplot(2, 1, 1).set_title('Gęstość rozkladu')
-    pyplot.plot(between, values2, 'o')
-    pyplot.plot(between, values1, '*')
+    pyplot.plot(between, values2, 'o', label='cg(x)')
+    pyplot.plot(between, values1, '*', label='f(x)')
+    pyplot.legend(bbox_to_anchor=(0., 1.02, 1., .102), loc='lower left',
+                  ncol=2, mode="expand", borderaxespad=0.)
+
 
     pyplot.subplot(2, 1, 2).set_title('Histogram wygenerowanych liczb')
     pyplot.hist(randoms, 40)
@@ -197,11 +202,13 @@ def ex4_check():
     values2 = Lab1.apply_for_all(between, ex4.g, c_param)
 
     pyplot.subplot(2, 1, 1).set_title('Gęstość rozkladu')
-    pyplot.plot(between, values2, 'o')
-    pyplot.plot(between, values1, '*')
+    pyplot.plot(between, values2, 'o', label='cg(x)')
+    pyplot.plot(between, values1, '*', label='f(x)')
+    pyplot.legend(bbox_to_anchor=(0., 1.02, 1., .102), loc='lower left',
+                  ncol=2, mode="expand", borderaxespad=0.)
 
     pyplot.subplot(2, 1, 2).set_title('Histogram wygenerowanych liczb')
-    pyplot.hist(randoms, 40)
+    pyplot.hist(randoms, 50)
     pyplot.show()
 
 
