@@ -30,14 +30,21 @@
 
 @Misc{numpy,
   title        = {Dokumentacja biblioteki numpy},
-  howpublished = {"\url{https://docs.scipy.org/doc/}"},
+  howpublished = {\url{https://docs.scipy.org/doc/}},
   month        = {03},
   year         = {2019},
 }
 
 @Misc{matplotlib,
   title        = {Dokumentacja biblioteki matplotlib},
-  howpublished = {"\url{https://matplotlib.org/contents.html}"},
+  howpublished = {\url{https://matplotlib.org/contents.html}},
+  month        = {03},
+  year         = {2019},
+}
+
+@Misc{mzykGeneracja,
+  author       = {Dr hab. inż Grzegorz Mzyk prof PWr},
+  howpublished = {\url{http://staff.iiar.pwr.wroc.pl/grzegorz.mzyk/kmi/kmi03.pdf}},
   month        = {03},
   year         = {2019},
 }

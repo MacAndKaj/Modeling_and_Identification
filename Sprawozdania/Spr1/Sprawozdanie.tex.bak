@@ -1,5 +1,4 @@
 \documentclass[12pt,a4paper]{article}
-\usepackage[utf8]{inputenc}
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
@@ -8,6 +7,7 @@
 \usepackage[T1]{fontenc}
 \usepackage[polish]{babel}
 \usepackage[utf8]{inputenc}
+\usepackage{textcomp}
 \usepackage{hyperref}
 \usepackage{float}
 \usepackage{url}
@@ -78,7 +78,7 @@ X_{n+1} = X_{n} \cdot Z - \lfloor X_{n} \cdot Z \rfloor
 Jak można od razu zauważyć dla liczby zębów piły, czyli $Z=1$ histogram przedstawia 1 słupek.
 Dzieje się tak, gdyż równanie \ref{eq:pila} przyjmuje w takim wypadku postać \ref{eq:pilaZ1} co oznacza, że każdy kolejny element jest powtórzeniem poprzedniego.
 Dodatkowo dla parzystej liczby zębów również występuje problem skupienia zdecydowanej większości liczb w jednym przedziale.
-Sprawdzając poszczególne liczby wygenerowane dla takiej ilości ,,zębów'' (rysunek \ref{fig:pilaZ2} ) można zauważyć, że liczby generowane są na całym przedziale, lecz po pewnym czasie wszystkie liczby są zerami. Dzieje się tak dlatego, że podczas mnożenia przez 2 w pewnym momencie ,,zerują się'' dalsze miejsca po przecinku co prowadzi do sytuacji, gdzie każda kolejna liczba będzie zerem.
+Sprawdzając poszczególne liczby wygenerowane dla takiej ilości ,,zębów'' (rysunek \ref{fig:pilaZ2}) można zauważyć, że liczby generowane są na całym przedziale, lecz po pewnym czasie wszystkie liczby są zerami. Dzieje się tak dlatego, że podczas mnożenia przez 2 w pewnym momencie ,,zerują się'' dalsze miejsca po przecinku co prowadzi do sytuacji, gdzie każda kolejna liczba będzie zerem.
 
 
 \begin{equation}\label{eq:pilaZ1}
@@ -151,28 +151,94 @@ Dodatkowo niech U będzie zmienną losową o rozkładzie jednostajnym na $[0,1)$
 Dzięki takim założeniom można wyznaczyć nową zmienną losową $X = F^{-1}(U)$, wtedy zmienna losowa $X$ ma rozkład prawdopodobieństwa o dystrybuancie $F$.
 Zatem generując ciąg liczb $X_{i} = F^{-1}(U_{i})$ otrzymuje się ciąg liczb losowych o rozkładzie z dystrybuantą F.
 
+
+\noindent
 W taki sposób zaimplementowano 4 generatory liczb losowych o rozkładach:
 \begin{itemize}
-\item równomiernym,
+\item dowolny,
 \item trójkątnym,
 \item wykładniczym,
-\item l
+\item Laplace'a.
 \end{itemize}
 
 
-\subsection{Rozkład równomierny}
+\subsection{Rozkład dowolny}
+Dla takiego rozkładu gęstość (przedstawiona wcześniej w postaci wykresu ogólnego na rysunku \ref{eq:liniowy}) można przedstawić jako
+\begin{equation}
+f(x) = \begin{cases} 2x, & \mbox{dla } x \in [0,1] \\ 0, & \mbox{dla } x \in (-\infty,0) \bigcup (1,\infty) \end{cases}
+\end{equation}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{../Obrazy/jednolity.png} 
+\caption{Gęstość rozkładu, wykres dystrybuanty oraz jej odwrotności, histogram wygenerowanych liczb oraz wygenerowane liczby z rozkładu równomiernego}
+\label{fig:jednorodnyL2}
+\end{figure}
+
+
 \subsection{Rozkład trójkątny}
+Gęstość rozkładu prawdopodobieństwa dla implementowanego generatora wynosi:
+\begin{equation}\label{eq:trojkatny}
+f(x) = \begin{cases} x + 1, & \mbox{dla } x \in (-1,0) \\ x - 1, & \mbox{dla } x \in [0,1) \\ 0, & \mbox{dla } x \not\in (-1,1) \end{cases}
+\end{equation}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{../Obrazy/trojkatny.png} 
+\caption{Gęstość rozkładu, wykres dystrybuanty oraz jej odwrotności, histogram wygenerowanych liczb oraz wygenerowane liczby z rozkładu trójkątnego}
+\label{fig:trojkatnyL2}
+\end{figure}
+
 \subsection{Rozkład wykładniczy}
+Gęstość wykładniczego rozkładu prawdopodobieństwa:
+\begin{equation}
+f(x) = e^{-x},\ x \geq 0
+\end{equation}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{../Obrazy/wykladniczy.png} 
+\caption{Gęstość rozkładu, wykres dystrybuanty oraz jej odwrotności, histogram wygenerowanych liczb oraz wygenerowane liczby z rozkładu wykładniczego}
+\label{fig:wykladniczyL2}
+\end{figure}
+
 \subsection{Rozkład Laplace'a}
+Gęstość rozkładu Laplace'a w ogólnym przypadku przedstawia się jako:
+\begin{equation}
+f(x) = \frac{1}{2b}\begin{cases} e^{-\frac{\mu-x}{b}}, & \mbox{dla } x < \mu \\ e^{-\frac{x-\mu}{b}}, & \mbox{dla } x \leq \mu\end{cases}
+\end{equation}
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{../Obrazy/laplace.png} 
+\caption{Gęstość rozkładu, wykres dystrybuanty oraz jej odwrotności, histogram wygenerowanych liczb oraz wygenerowane liczby z rozkładu Laplace'a}
+\label{fig:laplaceL2}
+\end{figure}
+
 
 \section{Metoda odrzucania}
-\subsection{Rozkład równomierny}
-\subsection{Rozkład wykładniczy}
-\subsection{Rozkład Laplace'a}
+Algorytm generacji liczb losowych w metodzie odrzucania wiąże się z wykorzystaniem dwóch gęstości rozkładów: $f(x)$ i $g(x)$, czyli kolejno gęstości rozkładu prawdopodobieństwa zmiennej X, której realizacja ma zostać wygenerowana oraz pomocnicza gęstość innej zmiennej losowej.
+Dodatkowo wymagane jest istnienie parametru $c>0$  dla którego spełniona jest zależność \ref{eq:c_odrzucania}.
+
+\begin{equation}\label{eq:c_odrzucania}
+f(x) \leq cg(x),\ dla\ x\in\textbf{R}
+\end{equation}
+\subsection{Rozkład trójkątny}
+Dla przykładu przyjęto funkcję gęstości rozkładu prawdopodobieństwa z równania \ref{eq:trojkatny}, czyli rozkładu trójkątnego.
+Dodatkowo przyjęto funkcję pomocniczą przedstawioną jako:
+
+%\begin{equation}
+%
+%\end{equation}
+
 
 
 \section{Wnioski}
-
+\begin{itemize}
+\item Na podstawie badań metody odrwotnej dystrybuanty można powiedzieć, że jest metoda dość uniwersalna, pozwalająca generować liczby losowe o dowolnym rozkładzie (przy założeniu, że funkcja gęstości rozkładu prawdopodobieństwa jest całkowalna).
+Dla prostych do odwrócenia funkcji nie widać w niej większych wad, jednak gdyby chcieć uzyskać generator z funkcji, której dystrybuanta jest niezwykle trudna do odwrócenia zadanie może się znacząco skomplikować.
+\end{itemize}
 \bibliographystyle{plabbrv} 
 
 \bibliography{../bibliografia}
