@@ -307,11 +307,12 @@ Wyniki generowania 10000 próbek w postaci wykresów funkcji oraz histogramu wyg
 
 \section{Wnioski}
 \begin{itemize}
+\item Przy tworzeniu generatora z przbiegu piłokształtnego okazało się, że parzysty okres generatora (tzn. ilość "zębów") jest szczególnie niekorzystny dla jakości samego generatora.
 \item Jak widać histogram próbek liczb losowych generowanych z nieznanego rozkładu może dostarczać informacji o samym rozkładzie, gdyż przypomina on funkcję gęstości tego rozkładu.
 \item Na podstawie badań metody odrwotnej dystrybuanty można powiedzieć, że jest metoda dość uniwersalna, pozwalająca generować liczby losowe o dowolnym rozkładzie (przy założeniu, że funkcja gęstości rozkładu prawdopodobieństwa jest całkowalna).
 Dla prostych do odwrócenia funkcji nie widać w niej większych wad, jednak gdyby chcieć uzyskać generator z funkcji, której dystrybuanta jest niezwykle trudna do odwrócenia zadanie może się znacząco skomplikować.
 \item Podstawowym problemem powstającym podczas używania metody odrzucania okazuje się poszukiwanie funkcji pomocniczej $g$ ponieważ trzeba je dobierać odpowiednio w zależności od przyjętej funkcji $f$.
-\item Dodatkowo przyjęte $g$ dla metody odrzucania powinno ,,ciasno opasać'' gęstość $g$, dzięki czemu uzyskuje się mniejszą przestrzeń pomiędzy obiema gęstościami, co gwarantuje większe prawdopodobieństwo przyjęcia.
+\item Dodatkowo przyjęte $g$ dla metody odrzucania powinno ,,ciasno opasać'' gęstość $g$, dzięki czemu uzyskuje się mniejszą przestrzeń pomiędzy obiema gęstościami, co gwarantuje większe prawdopodobieństwo przyjęcia. Jeżeli funkcja pomocnicza zostanie dobrana nieprawidłowo lub współczynnik $c$ będzie nieodpowiedni proces generowania liczb losowych może się znacząco wydłużyć co również wpływa niekorzystnie na jakość generatora.
 \end{itemize}
 
 \nocite{rachunek2006jakubowski}
