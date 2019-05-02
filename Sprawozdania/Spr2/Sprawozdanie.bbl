@@ -1,0 +1,30 @@
+\begin{thebibliography}{1}
+
+\bibitem{matplotlib}
+Dokumentacja biblioteki matplotlib.
+\newblock \url{https://matplotlib.org/contents.html}, 03 2019.
+
+\bibitem{numpy}
+Dokumentacja biblioteki numpy.
+\newblock \url{https://docs.scipy.org/doc/}, 03 2019.
+
+\bibitem{python3}
+Dokumentacja python 3.7.1.
+\newblock \url{https://docs.python.org/release/3.7.1/}, 03 2019.
+
+\bibitem{wstep2001jakubowski}
+R.~S. Jacek~Jakubowski.
+\newblock {\em Wstęp do teorii prawdopodobieństwa.}
+\newblock Jacek Jakubowski, Rafał Sztencel, 2001.
+
+\bibitem{rachunek2006jakubowski}
+R.~S. Jacek~Jakubowski.
+\newblock {\em Rachunek prawdopodobieństwa dla (prawie) wszystkich.}
+\newblock Jacek Jakubowski, Rafał Sztencel, 2006.
+
+\bibitem{generatory1997Wieczorkowski}
+R.~Z. Robert~Wieczorkowski.
+\newblock {\em Komputerowe generatory liczb losowych.}
+\newblock Wydawnictwa Naukowo-Techniczne, 1997.
+
+\end{thebibliography}

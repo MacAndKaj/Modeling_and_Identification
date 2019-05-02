@@ -6,57 +6,81 @@ import Lab1
 from matplotlib import pyplot
 from numpy import arange
 
+space = arange(-0.5, 1.5, 0.01)
+N = 10000
 
-def empiric_distribution(values: list, space: list):
+
+def empiric_distribution(values: list, space):
     returned_list = []
-    for i in space:
+    for x in space:
         sum_of_values_lower_than_i = 0
         counter = 0
-        for j in values:
+        for X_n in values:
             counter += 1
-            if j <= i:
+            if X_n <= x:
                 sum_of_values_lower_than_i += 1
-        returned_list.append( sum_of_values_lower_than_i / counter)
+        returned_list.append(sum_of_values_lower_than_i / counter)
     return returned_list
 
 
-generator = Lab1.Ex1()
-D = []
-N = range(100, 100000, 500)
-# N = [1]
-counter = 0
-for nr_of_samples in N:
-    keys = []
-    for i in range(nr_of_samples):
-        keys.append(random.uniform(0, 1))
+def empiric_variance(F_n, F, space):
+    return [(F_n[i] - F(space[i])) ** 2 for i in range(len(space))]
 
-    random_numbers = Lab1.Generator.generate_random_numbers(keys, generator)
-    between = arange(0, 1, 0.01)
 
-    empiric_dist = empiric_distribution(random_numbers, between)
-    # pyplot.plot(empiric_dist.values(),empiric_dist.keys(), 'x')
-    difference = []
-    for key in range(len(empiric_dist)):
-        difference.append(abs(empiric_dist[key] - generator.F(between[key])))
-    D.append(max(difference))
-    print(int(100*counter/len(N)), '%')
-    counter+=1
+def D_N(empiric_dist, space, ex=Lab1.Ex1()):
+    d_n = []
+    for i in range(len(empiric_dist)):
+        d_n.append(abs(empiric_dist[i] - ex.F(space[i])))
+    return max(d_n)
 
-keys = []
-nr_of_samples = 10000
-for i in range(nr_of_samples):
-    keys.append(random.uniform(0, 1))
 
-random_numbers = Lab1.Generator.generate_random_numbers(keys, generator)
-between = arange(0, 1, 0.01)
+if __name__ == '__main__':
+    # for nr_of_samples in [10,100,1000]:
+    #     keys = [random.uniform(0, 1) for i in range(nr_of_samples)]
+    #     randoms = Lab1.Generator.generate_random_numbers(keys, Lab1.Ex1())
+    #
+    #     F_empiric = empiric_distribution(randoms, space)
+    #     empiric = pyplot.plot(space, F_empiric, 'o',label=r"$F_{N}(x)$ N="+str(nr_of_samples))
+    #
+    # F_real = [Lab1.Ex1().F(x) for x in space]
+    # real = pyplot.plot(space, F_real, 'r',label=r"$F(x)$")
+    # pyplot.legend()
+    # pyplot.title("Wykres dystrybuanty empirycznej na tle prawdziwej")
+    # pyplot.xlabel('x')
+    # pyplot.ylabel('F(x)')
+    # pyplot.grid()
+    # D = []
+    # n = range(10, N, 50)
+    # keys = [random.uniform(0, 1) for i in range(N)]
+    # randoms = Lab1.Generator.generate_random_numbers(keys, Lab1.Ex1())
+    # F_real = [Lab1.Ex1().F(x) for x in space]
+    # for nr_of_samples in n:
+    #
+    #     F_empiric = empiric_distribution(randoms[0:nr_of_samples], space)
+    #
+    #     D.append(D_N(F_empiric,space))
+    #
+    # pyplot.plot(n,D,'r*')
+    #
+    # pyplot.xlabel('N')
+    # pyplot.ylabel('D(N)')
+    # pyplot.plot(space, F_real, 'o')
+    # pyplot.plot(space, F_empiric, '*')
+    nr_of_samples = 500
+    keys = [random.uniform(0, 1) for i in range(nr_of_samples)]
+    randoms = Lab1.Generator.generate_random_numbers(keys, Lab1.Ex1())
 
-values = Lab1.apply_for_all(between, generator.F)
-pyplot.plot(between, values, 'o')
+    F_empiric = empiric_distribution(randoms, space)
 
-empiric_dist = empiric_distribution(values, between)
-pyplot.figure(1)
-pyplot.plot(empiric_dist, between, 'x')
+    fig = pyplot.figure()
+    ax1 = fig.add_subplot(211)
+    ax2 = fig.add_subplot(212)
+    ax1.title.set_text(r'Dystrybuanta empiryczna')
+    ax2.title.set_text(r'Estymator wariancji')
 
-pyplot.figure(2)
-pyplot.plot(N, D, '*')
-pyplot.show()
+    pyplot.subplot(2, 1, 1)
+    pyplot.plot(space, F_empiric)
+
+    pyplot.subplot(2, 1, 2)
+    pyplot.plot(space, empiric_variance(F_empiric, Lab1.Ex1().F, space))
+    pyplot.show()

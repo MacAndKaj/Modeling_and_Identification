@@ -8,6 +8,8 @@ from matplotlib import pyplot
 from numpy.ma import arange
 import pylab
 
+from Lab5_12 import K_epanechnikov, K_cosine, K_gauss
+
 
 class System(object):
 
@@ -26,53 +28,56 @@ def K_boxcar(x):
         return 0
 
 
-N = 500
-uniform_a = -2
-uniform_b = 2
-
-
-normal_mu = 0
-normal_sigma = 1
-
-
-
-def m_N(X, h=0.9):
+def m_N(T, X, h=0.9, kernel=K_boxcar):
     estymator = []
     for x in X:
         sum_up = 0
         sum_down = 0
         for (x_n, y_n) in T:
-            sum_up += y_n * K_boxcar((x_n - x) / h)
-            sum_down += K_boxcar((x_n - x) / h)
+            sum_up += y_n * kernel((x_n - x) / h)
+            sum_down += kernel((x_n - x) / h)
         estymator.append(sum_up / sum_down)
     return estymator
 
 
-Q = 100
+if __name__ == '__main__':
+    Q = 100
+    a = [1, 10, 50, 100]
+    # a = [1]
 
-a = [1,10]
-for i in range(len(a)):
+    fig = pyplot.figure(1)
+    ax1 = fig.add_subplot(221)
+    ax1.title.set_text("a=1")
+    ax2 = fig.add_subplot(222)
+    ax2.title.set_text("a=10")
+    ax3 = fig.add_subplot(223)
+    ax3.title.set_text("a=50")
+    ax4 = fig.add_subplot(224)
+    ax4.title.set_text("a=100")
+    for i in range(len(a)):
+        N = 1000
+        uniform_a = -2
+        uniform_b = 2
 
-    system = System(a[i])
-    X = [random.uniform(uniform_a, uniform_b) for _ in range(N)]
-    Z = stats.cauchy.rvs(loc=0, scale=0.01, size=N)
-    Y = [system.m(X[n]) + Z[n] for n in range(N)]
-    T = [(X[n], Y[n]) for n in range(N)]
+        normal_mu = 0
+        normal_sigma = 1
 
-    valid_h = []
-    h = arange(0.1, 2, 0.01)
-    for _h in h:
-        sum_q = 0
-        for q in range(-Q, Q, 1):
-            sum_q += (m_N([q / Q], _h)[0] - system.m(q / Q)) ** 2
+        system = System(a[i])
 
-        valid_h.append(sum_q / (2 * Q))
+        X = [random.uniform(uniform_a, uniform_b) for _ in range(N)]
+        Z = stats.cauchy.rvs(loc=0, scale=0.01, size=N)
+        # Z = [random.gauss(0, 0.5) for _ in range(N)]
+        Y = [system.m(X[n]) + Z[n] for n in range(N)]
+        T = [(X[n], Y[n]) for n in range(N)]
+        h = 0.1
+        # h = [0.1, 0.5, 1, 1.5]
+        kernels = [K_boxcar, K_epanechnikov, K_cosine, K_gauss]
+        # for k in range(len(h)):
+        pyplot.subplot(2, 2, i + 1)
 
-
-    min_h = h[valid_h.index(min(valid_h))]
-
-    pylab.figure(i+1)
-    pylab.plot(X, m_N(X, min_h), 'r.', label='$m_{N}(x)$')
-    pylab.plot(X, [system.m(x) for x in X], 'g.', label='m(x)')
-
-pylab.show()
+        pyplot.plot(X, m_N(T, X, h, kernels[3]), 'r.', label='$m_{N}(x)$')
+        pyplot.plot(X, [system.m(x) for x in X], 'g.', label='Charakterystyka systemu')
+        pyplot.legend()
+        # pyplot.figure(2)
+        # pylab.plot(X, Y, 'b.', label='Pomiary')
+    pyplot.show()

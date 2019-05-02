@@ -167,7 +167,7 @@ def all(Ex, numOfFigure):
 
 
 if __name__ == '__main__':
-    # all(Ex1(),1)
+    all(Ex1(),1)
     # all(Ex2(),2)
     # all(Ex3(),3)
     all(Ex4(), 4)
