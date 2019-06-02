@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2019/dev/Debian) (preloaded format=pdflatex 2019.4.27)  2 MAY 2019 04:57
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2019/dev/Debian) (preloaded format=pdflatex 2019.4.27)  2 JUN 2019 19:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -290,60 +290,85 @@ Package babel Info: Making " an active character on input line 83.
 \pl@right=\dimen129
 \pl@temp=\dimen130
 ))
-(/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
-Package: caption 2018/10/06 v3.3-154 Customizing captions (AR)
-
-(/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
-Package: caption3 2018/09/12 v1.8c caption3 kernel (AR)
-Package caption3 Info: TeX engine: e-TeX on input line 64.
-\captionmargin=\dimen131
-\captionmargin@=\dimen132
-\captionwidth=\dimen133
-\caption@tempdima=\dimen134
-\caption@indent=\dimen135
-\caption@parindent=\dimen136
-\caption@hangindent=\dimen137
-)
-\c@caption@flags=\count116
-\c@ContinuedFloat=\count117
-Package caption Info: float package is loaded.
-Package caption Info: hyperref package is loaded.
-)
-(/usr/share/texlive/texmf-dist/tex/latex/caption/subcaption.sty
-Package: subcaption 2018/05/01 v1.1-162 Sub-captions (AR)
-\c@subfigure=\count118
-\c@subtable=\count119
+(/usr/share/texlive/texmf-dist/tex/latex/tools/multicol.sty
+Package: multicol 2018/12/27 v1.8v multicolumn formatting (FMi)
+\c@tracingmulticols=\count116
+\mult@box=\box31
+\multicol@leftmargin=\dimen131
+\c@unbalance=\count117
+\c@collectmore=\count118
+\doublecol@number=\count119
+\multicoltolerance=\count120
+\multicolpretolerance=\count121
+\full@width=\dimen132
+\page@free=\dimen133
+\premulticols=\dimen134
+\postmulticols=\dimen135
+\multicolsep=\skip47
+\multicolbaselineskip=\skip48
+\partial@page=\box32
+\last@line=\box33
+\maxbalancingoverflow=\dimen136
+\mult@rightbox=\box34
+\mult@grightbox=\box35
+\mult@gfirstbox=\box36
+\mult@firstbox=\box37
+\@tempa=\box38
+\@tempa=\box39
+\@tempa=\box40
+\@tempa=\box41
+\@tempa=\box42
+\@tempa=\box43
+\@tempa=\box44
+\@tempa=\box45
+\@tempa=\box46
+\@tempa=\box47
+\@tempa=\box48
+\@tempa=\box49
+\@tempa=\box50
+\@tempa=\box51
+\@tempa=\box52
+\@tempa=\box53
+\@tempa=\box54
+\c@columnbadness=\count122
+\c@finalcolumnbadness=\count123
+\last@try=\dimen137
+\multicolovershoot=\dimen138
+\multicolundershoot=\dimen139
+\mult@nat@firstbox=\box55
+\colbreak@box=\box56
+\mc@col@check@num=\count124
 )
 (./Sprawozdanie.aux)
 \openout1 = `Sprawozdanie.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count120
-\scratchdimen=\dimen138
-\scratchbox=\box31
-\nofMPsegments=\count121
-\nofMParguments=\count122
+\scratchcounter=\count125
+\scratchdimen=\dimen140
+\scratchbox=\box57
+\nofMPsegments=\count126
+\nofMParguments=\count127
 \everyMPshowfont=\toks25
-\MPscratchCnt=\count123
-\MPscratchDim=\dimen139
-\MPnumerator=\count124
-\makeMPintoPDFobject=\count125
+\MPscratchCnt=\count128
+\MPscratchDim=\dimen141
+\MPnumerator=\count129
+\makeMPintoPDFobject=\count130
 \everyMPtoPDFconversion=\toks26
 ) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
@@ -396,250 +421,237 @@ e
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-\AtBeginShipoutBox=\box32
-Package hyperref Info: Link coloring OFF on input line 20.
+\AtBeginShipoutBox=\box58
+Package hyperref Info: Link coloring OFF on input line 19.
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count126
+\c@section@level=\count131
 )
-LaTeX Info: Redefining \ref on input line 20.
-LaTeX Info: Redefining \pageref on input line 20.
-LaTeX Info: Redefining \nameref on input line 20.
+LaTeX Info: Redefining \ref on input line 19.
+LaTeX Info: Redefining \pageref on input line 19.
+LaTeX Info: Redefining \nameref on input line 19.
 
 (./Sprawozdanie.out) (./Sprawozdanie.out)
 \@outlinefile=\write3
 \openout3 = `Sprawozdanie.out'.
 
-Package caption Info: Begin \AtBeginDocument code.
-Package caption Info: End \AtBeginDocument code.
-LaTeX Font Info:    Try loading font information for U+msa on input line 22.
+LaTeX Font Info:    Try loading font information for U+msa on input line 21.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 22.
+LaTeX Font Info:    Try loading font information for U+msb on input line 21.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [1
+)
+<../Obrazy/Spr3/MIMO.png, id=72, 236.885pt x 115.43124pt>
+File: ../Obrazy/Spr3/MIMO.png Graphic file (type png)
+<use ../Obrazy/Spr3/MIMO.png>
+Package pdftex.def Info: ../Obrazy/Spr3/MIMO.png  used on input line 32.
+(pdftex.def)             Requested size: 217.66211pt x 106.06769pt.
+<../Obrazy/Spr3/MISO.png, id=74, 282.05376pt x 119.44624pt>
+File: ../Obrazy/Spr3/MISO.png Graphic file (type png)
+<use ../Obrazy/Spr3/MISO.png>
+Package pdftex.def Info: ../Obrazy/Spr3/MISO.png  used on input line 39.
+(pdftex.def)             Requested size: 251.52443pt x 106.51822pt.
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-<../Obrazy/Spr2/estymatoryNormalny.png, id=98, 1387.584pt x 675.0018pt>
-File: ../Obrazy/Spr2/estymatoryNormalny.png Graphic file (type png)
-<use ../Obrazy/Spr2/estymatoryNormalny.png>
-Package pdftex.def Info: ../Obrazy/Spr2/estymatoryNormalny.png  used on input l
-ine 60.
+Overfull \hbox (14.676pt too wide) in paragraph at lines 39--40
+ [][] 
+ []
+
+[1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <../Obrazy/Spr3/MIMO.png> <
+../Obrazy/Spr3/MISO.png>]
+Overfull \hbox (15.74013pt too wide) in paragraph at lines 46--46
+[]\T1/cmr/bx/n/17.28 Nieparametryczna iden-ty-fi-ka-cja sta-tycz-nych sys-te-mó
+w nie-
+ []
+
+<../Obrazy/Spr3/z1_pierwszy.png, id=96, 560.0925pt x 402.5439pt>
+File: ../Obrazy/Spr3/z1_pierwszy.png Graphic file (type png)
+<use ../Obrazy/Spr3/z1_pierwszy.png>
+Package pdftex.def Info: ../Obrazy/Spr3/z1_pierwszy.png  used on input line 64.
+
+(pdftex.def)             Requested size: 386.95897pt x 278.12411pt.
+<../Obrazy/Spr3/cosinus.png, id=100, 1226.4219pt x 603.4545pt>
+File: ../Obrazy/Spr3/cosinus.png Graphic file (type png)
+<use ../Obrazy/Spr3/cosinus.png>
+Package pdftex.def Info: ../Obrazy/Spr3/cosinus.png  used on input line 80.
+(pdftex.def)             Requested size: 483.69687pt x 237.9982pt.
+[2 <../Obrazy/Spr3/z1_pierwszy.png>]
+<../Obrazy/Spr3/valid_L.png, id=121, 462.528pt x 346.896pt>
+File: ../Obrazy/Spr3/valid_L.png Graphic file (type png)
+<use ../Obrazy/Spr3/valid_L.png>
+Package pdftex.def Info: ../Obrazy/Spr3/valid_L.png  used on input line 104.
+(pdftex.def)             Requested size: 386.95897pt x 290.23143pt.
+ [3 <../Obrazy/Spr3/cosinus.png>]
+<../Obrazy/Spr3/est_best_L.png, id=131, 462.528pt x 346.896pt>
+File: ../Obrazy/Spr3/est_best_L.png Graphic file (type png)
+<use ../Obrazy/Spr3/est_best_L.png>
+Package pdftex.def Info: ../Obrazy/Spr3/est_best_L.png  used on input line 111.
+
+(pdftex.def)             Requested size: 386.95897pt x 290.23143pt.
+ [4 <../Obrazy/Spr3/valid_L.png> <../Obrazy/Spr3/est_best_L.png>]
+<../Obrazy/Spr3/cauchy_porownanie_err.png, id=139, 1387.584pt x 675.0018pt>
+File: ../Obrazy/Spr3/cauchy_porownanie_err.png Graphic file (type png)
+<use ../Obrazy/Spr3/cauchy_porownanie_err.png>
+Package pdftex.def Info: ../Obrazy/Spr3/cauchy_porownanie_err.png  used on inpu
+t line 126.
 (pdftex.def)             Requested size: 483.69687pt x 235.2963pt.
-<../Obrazy/Spr2/estymatoryCauchy.png, id=100, 462.528pt x 346.896pt>
-File: ../Obrazy/Spr2/estymatoryCauchy.png Graphic file (type png)
-<use ../Obrazy/Spr2/estymatoryCauchy.png>
-Package pdftex.def Info: ../Obrazy/Spr2/estymatoryCauchy.png  used on input lin
-e 67.
+<../Obrazy/Spr3/cauchy_porownanie_est.png, id=140, 1387.584pt x 675.0018pt>
+File: ../Obrazy/Spr3/cauchy_porownanie_est.png Graphic file (type png)
+<use ../Obrazy/Spr3/cauchy_porownanie_est.png>
+Package pdftex.def Info: ../Obrazy/Spr3/cauchy_porownanie_est.png  used on inpu
+t line 133.
+(pdftex.def)             Requested size: 483.69687pt x 235.2963pt.
+ [5 <../Obrazy/Spr3/cauchy_porownanie_err.png>] [6 <../Obrazy/Spr3/cauchy_porow
+nanie_est.png>]
+Overfull \hbox (4.01006pt too wide) in paragraph at lines 140--140
+[]\T1/cmr/bx/n/17.28 Identyfikacja sta-tycz-nych sys-te-mów li-nio-wych typu MI
+SO 
+ []
+
+<../Obrazy/Spr3/przyklad2.png, id=157, 588.2778pt x 393.8715pt>
+File: ../Obrazy/Spr3/przyklad2.png Graphic file (type png)
+<use ../Obrazy/Spr3/przyklad2.png>
+Package pdftex.def Info: ../Obrazy/Spr3/przyklad2.png  used on input line 164.
+(pdftex.def)             Requested size: 483.69687pt x 323.86018pt.
+[7]
+<../Obrazy/Spr3/maceirze_kow_a.png, id=170, 768.2301pt x 517.4532pt>
+File: ../Obrazy/Spr3/maceirze_kow_a.png Graphic file (type png)
+<use ../Obrazy/Spr3/maceirze_kow_a.png>
+Package pdftex.def Info: ../Obrazy/Spr3/maceirze_kow_a.png  used on input line 
+185.
+(pdftex.def)             Requested size: 483.69687pt x 325.79984pt.
+ [8 <../Obrazy/Spr3/przyklad2.png>]
+<../Obrazy/Spr3/err_est_a.png, id=181, 1387.584pt x 675.0018pt>
+File: ../Obrazy/Spr3/err_est_a.png Graphic file (type png)
+<use ../Obrazy/Spr3/err_est_a.png>
+Package pdftex.def Info: ../Obrazy/Spr3/err_est_a.png  used on input line 213.
+(pdftex.def)             Requested size: 483.69687pt x 235.2963pt.
+ [9 <../Obrazy/Spr3/maceirze_kow_a.png>]
+[10 <../Obrazy/Spr3/err_est_a.png>]
+Overfull \hbox (2.72922pt too wide) in paragraph at lines 219--219
+[]\T1/cmr/bx/n/17.28 Identyfikacja sta-tycz-nych li-nio-wych sys-te-mów MISO pr
+zy
+ []
+
+<../Obrazy/Spr3/PRZYKLAD3.png, id=198, 632.3625pt x 401.0985pt>
+File: ../Obrazy/Spr3/PRZYKLAD3.png Graphic file (type png)
+<use ../Obrazy/Spr3/PRZYKLAD3.png>
+Package pdftex.def Info: ../Obrazy/Spr3/PRZYKLAD3.png  used on input line 235.
+(pdftex.def)             Requested size: 483.69687pt x 306.80873pt.
+[11 <../Obrazy/Spr3/PRZYKLAD3.png>]
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 282.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `subscript' on input line 282.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 282.
+
+[12]
+<../Obrazy/Spr3/dynamiczny.png, id=227, 610.28pt x 310.15875pt>
+File: ../Obrazy/Spr3/dynamiczny.png Graphic file (type png)
+<use ../Obrazy/Spr3/dynamiczny.png>
+Package pdftex.def Info: ../Obrazy/Spr3/dynamiczny.png  used on input line 302.
+
+(pdftex.def)             Requested size: 217.66211pt x 110.6206pt.
+<../Obrazy/Spr3/dynamiczny_SISO.png, id=228, 540.0175pt x 245.91875pt>
+File: ../Obrazy/Spr3/dynamiczny_SISO.png Graphic file (type png)
+<use ../Obrazy/Spr3/dynamiczny_SISO.png>
+Package pdftex.def Info: ../Obrazy/Spr3/dynamiczny_SISO.png  used on input line
+ 309.
+(pdftex.def)             Requested size: 251.52443pt x 114.53865pt.
+
+Overfull \hbox (14.676pt too wide) in paragraph at lines 309--310
+ [][] 
+ []
+
+<../Obrazy/Spr3/odpowiedz_impulsowa.png, id=230, 462.528pt x 346.896pt>
+File: ../Obrazy/Spr3/odpowiedz_impulsowa.png Graphic file (type png)
+<use ../Obrazy/Spr3/odpowiedz_impulsowa.png>
+Package pdftex.def Info: ../Obrazy/Spr3/odpowiedz_impulsowa.png  used on input 
+line 329.
 (pdftex.def)             Requested size: 483.69687pt x 362.79062pt.
- [2 <../Obrazy/Spr2/estymatoryNormalny.png>]
-<../Obrazy/Spr2/bladNormalny.png, id=109, 1387.584pt x 675.0018pt>
-File: ../Obrazy/Spr2/bladNormalny.png Graphic file (type png)
-<use ../Obrazy/Spr2/bladNormalny.png>
-Package pdftex.def Info: ../Obrazy/Spr2/bladNormalny.png  used on input line 90
-.
-(pdftex.def)             Requested size: 483.69687pt x 235.2963pt.
+[13 <../Obrazy/Spr3/dynamiczny.png> <../Obrazy/Spr3/dynamicznY_SISO.png>]
+<../Obrazy/Spr3/dynamiczny_b.png, id=246, 462.528pt x 346.896pt>
+File: ../Obrazy/Spr3/dynamiczny_b.png Graphic file (type png)
+<use ../Obrazy/Spr3/dynamiczny_b.png>
+Package pdftex.def Info: ../Obrazy/Spr3/dynamiczny_b.png  used on input line 34
+4.
+(pdftex.def)             Requested size: 483.69687pt x 362.79062pt.
 
-[3 <../Obrazy/Spr2/estymatoryCauchy.png>]
-<../Obrazy/Spr2/dystrybuantaEmpirycznaWykresy.png, id=121, 1387.584pt x 675.001
-8pt>
-File: ../Obrazy/Spr2/dystrybuantaEmpirycznaWykresy.png Graphic file (type png)
-<use ../Obrazy/Spr2/dystrybuantaEmpirycznaWykresy.png>
-Package pdftex.def Info: ../Obrazy/Spr2/dystrybuantaEmpirycznaWykresy.png  used
- on input line 117.
-(pdftex.def)             Requested size: 483.69687pt x 235.2963pt.
- [4 <../Obrazy/Spr2/bladNormalny.png>]
-<../Obrazy/Spr2/blad.png, id=135, 1387.584pt x 675.0018pt>
-File: ../Obrazy/Spr2/blad.png Graphic file (type png)
-<use ../Obrazy/Spr2/blad.png>
-Package pdftex.def Info: ../Obrazy/Spr2/blad.png  used on input line 136.
-(pdftex.def)             Requested size: 483.69687pt x 235.2963pt.
-[5 <../Obrazy/Spr2/dystrybuantaEmpirycznaWykresy.png>]
-<../Obrazy/Spr2/normal11.png, id=147, 1387.584pt x 675.0018pt>
-File: ../Obrazy/Spr2/normal11.png Graphic file (type png)
-<use ../Obrazy/Spr2/normal11.png>
-Package pdftex.def Info: ../Obrazy/Spr2/normal11.png  used on input line 149.
-(pdftex.def)             Requested size: 483.69687pt x 235.2963pt.
-<../Obrazy/Spr2/normal05.png, id=148, 1387.584pt x 675.0018pt>
-File: ../Obrazy/Spr2/normal05.png Graphic file (type png)
-<use ../Obrazy/Spr2/normal05.png>
-Package pdftex.def Info: ../Obrazy/Spr2/normal05.png  used on input line 156.
-(pdftex.def)             Requested size: 483.69687pt x 235.2963pt.
- [6 <../Obrazy/Spr2/blad.png> <../Obrazy/Spr2/normal11.png>]
-<../Obrazy/Spr2/cauchy01.png, id=158, 1387.584pt x 675.0018pt>
-File: ../Obrazy/Spr2/cauchy01.png Graphic file (type png)
-<use ../Obrazy/Spr2/cauchy01.png>
-Package pdftex.def Info: ../Obrazy/Spr2/cauchy01.png  used on input line 163.
-(pdftex.def)             Requested size: 483.69687pt x 235.2963pt.
-<../Obrazy/Spr2/estymatorWariancji.png, id=160, 1387.584pt x 675.0018pt>
-File: ../Obrazy/Spr2/estymatorWariancji.png Graphic file (type png)
-<use ../Obrazy/Spr2/estymatorWariancji.png>
-Package pdftex.def Info: ../Obrazy/Spr2/estymatorWariancji.png  used on input l
-ine 180.
-(pdftex.def)             Requested size: 483.69687pt x 235.2963pt.
- [7 <../Obrazy/Spr2/normal05.png> <../Obrazy/Spr2/cauchy01.png>]
-<../Obrazy/Spr2/ctg.png, id=172, 1445.4pt x 687.31781pt>
-File: ../Obrazy/Spr2/ctg.png Graphic file (type png)
-<use ../Obrazy/Spr2/ctg.png>
-Package pdftex.def Info: ../Obrazy/Spr2/ctg.png  used on input line 197.
-(pdftex.def)             Requested size: 386.95897pt x 184.00514pt.
-<../Obrazy/Spr2/ctg1.png, id=173, 429.10312pt x 310.91156pt>
-File: ../Obrazy/Spr2/ctg1.png Graphic file (type png)
-<use ../Obrazy/Spr2/ctg1.png>
-Package pdftex.def Info: ../Obrazy/Spr2/ctg1.png  used on input line 207.
-(pdftex.def)             Requested size: 145.11053pt x 105.13922pt.
-<../Obrazy/Spr2/ctg2.png, id=174, 429.10312pt x 310.91156pt>
-File: ../Obrazy/Spr2/ctg2.png Graphic file (type png)
-<use ../Obrazy/Spr2/ctg2.png>
-Package pdftex.def Info: ../Obrazy/Spr2/ctg2.png  used on input line 211.
-(pdftex.def)             Requested size: 145.11053pt x 105.13922pt.
-<../Obrazy/Spr2/ctg3.png, id=175, 429.10312pt x 310.91156pt>
-File: ../Obrazy/Spr2/ctg3.png Graphic file (type png)
-<use ../Obrazy/Spr2/ctg3.png>
-Package pdftex.def Info: ../Obrazy/Spr2/ctg3.png  used on input line 215.
-(pdftex.def)             Requested size: 145.11053pt x 105.13922pt.
- [8 <../Obrazy/Spr2/estymatorWariancji.png> <../Obrazy/Spr2/ctg.png (PNG copy)>
-]
-<../Obrazy/Spr2/jadrowyProstokatny.png, id=186, 1387.584pt x 675.0018pt>
-File: ../Obrazy/Spr2/jadrowyProstokatny.png Graphic file (type png)
-<use ../Obrazy/Spr2/jadrowyProstokatny.png>
-Package pdftex.def Info: ../Obrazy/Spr2/jadrowyProstokatny.png  used on input l
-ine 248.
-(pdftex.def)             Requested size: 483.69687pt x 235.2963pt.
- [9 <../Obrazy/Spr2/ctg1.png (PNG copy)> <../Obrazy/Spr2/ctg2.png (PNG copy)> <
-../Obrazy/Spr2/ctg3.png (PNG copy)>]
-<../Obrazy/Spr2/jadra.png, id=196, 1387.584pt x 675.0018pt>
-File: ../Obrazy/Spr2/jadra.png Graphic file (type png)
-<use ../Obrazy/Spr2/jadra.png>
-Package pdftex.def Info: ../Obrazy/Spr2/jadra.png  used on input line 262.
-(pdftex.def)             Requested size: 483.69687pt x 235.2963pt.
- [10 <../Obrazy/Spr2/jadrowyProstokatny.png> <../Obrazy/Spr2/jadra.png>]
-<../Obrazy/Spr2/trojkatnyEstymator.png, id=206, 1387.584pt x 675.0018pt>
-File: ../Obrazy/Spr2/trojkatnyEstymator.png Graphic file (type png)
-<use ../Obrazy/Spr2/trojkatnyEstymator.png>
-Package pdftex.def Info: ../Obrazy/Spr2/trojkatnyEstymator.png  used on input l
-ine 274.
-(pdftex.def)             Requested size: 483.69687pt x 235.2963pt.
-<../Obrazy/Spr2/bladEmpiryczny.png, id=209, 462.528pt x 346.896pt>
-File: ../Obrazy/Spr2/bladEmpiryczny.png Graphic file (type png)
-<use ../Obrazy/Spr2/bladEmpiryczny.png>
-Package pdftex.def Info: ../Obrazy/Spr2/bladEmpiryczny.png  used on input line 
-291.
+[14 <../Obrazy/Spr3/odpowiedz_impulsowa.png>]
+<../Obrazy/Spr3/odp_norm.png, id=260, 730.6497pt x 472.6458pt>
+File: ../Obrazy/Spr3/odp_norm.png Graphic file (type png)
+<use ../Obrazy/Spr3/odp_norm.png>
+Package pdftex.def Info: ../Obrazy/Spr3/odp_norm.png  used on input line 364.
+(pdftex.def)             Requested size: 386.95897pt x 250.32077pt.
+ [15 <../Obrazy/Spr3/dynamiczny_b.png>]
+<../Obrazy/Spr3/dynamiczny_err_mnk.png, id=270, 462.528pt x 346.896pt>
+File: ../Obrazy/Spr3/dynamiczny_err_mnk.png Graphic file (type png)
+<use ../Obrazy/Spr3/dynamiczny_err_mnk.png>
+Package pdftex.def Info: ../Obrazy/Spr3/dynamiczny_err_mnk.png  used on input l
+ine 371.
 (pdftex.def)             Requested size: 386.95897pt x 290.23143pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<../Obrazy/Spr2/system.png, id=211, 1387.584pt x 675.0018pt>
-File: ../Obrazy/Spr2/system.png Graphic file (type png)
-<use ../Obrazy/Spr2/system.png>
-Package pdftex.def Info: ../Obrazy/Spr2/system.png  used on input line 308.
-(pdftex.def)             Requested size: 483.69687pt x 235.2963pt.
-[11 <../Obrazy/Spr2/trojkatnyEstymator.png>] [12 <../Obrazy/Spr2/bladEmpiryczny
-.png> <../Obrazy/Spr2/system.png>]
-<../Obrazy/Spr2/estymatorRegresji.png, id=230, 1387.584pt x 675.0018pt>
-File: ../Obrazy/Spr2/estymatorRegresji.png Graphic file (type png)
-<use ../Obrazy/Spr2/estymatorRegresji.png>
-Package pdftex.def Info: ../Obrazy/Spr2/estymatorRegresji.png  used on input li
-ne 326.
-(pdftex.def)             Requested size: 483.69687pt x 235.2963pt.
-<../Obrazy/Spr2/jadraRegresja.png, id=233, 1387.584pt x 675.0018pt>
-File: ../Obrazy/Spr2/jadraRegresja.png Graphic file (type png)
-<use ../Obrazy/Spr2/jadraRegresja.png>
-Package pdftex.def Info: ../Obrazy/Spr2/jadraRegresja.png  used on input line 3
-42.
-(pdftex.def)             Requested size: 483.69687pt x 235.2963pt.
- [13 <../Obrazy/Spr2/estymatorRegresji.png>]
-<../Obrazy/Spr2/regresjaNieliniowosc.png, id=244, 1387.584pt x 675.0018pt>
-File: ../Obrazy/Spr2/regresjaNieliniowosc.png Graphic file (type png)
-<use ../Obrazy/Spr2/regresjaNieliniowosc.png>
-Package pdftex.def Info: ../Obrazy/Spr2/regresjaNieliniowosc.png  used on input
- line 350.
-(pdftex.def)             Requested size: 483.69687pt x 235.2963pt.
-
-[14 <../Obrazy/Spr2/jadraRegresja.png> <../Obrazy/Spr2/regresjaNieliniowosc.png
->]
-<../Obrazy/Spr2/optBoxcar.png, id=262, 1387.584pt x 675.0018pt>
-File: ../Obrazy/Spr2/optBoxcar.png Graphic file (type png)
-<use ../Obrazy/Spr2/optBoxcar.png>
-Package pdftex.def Info: ../Obrazy/Spr2/optBoxcar.png  used on input line 368.
-(pdftex.def)             Requested size: 386.95897pt x 188.23703pt.
-<../Obrazy/Spr2/optGauss.png, id=263, 1387.584pt x 675.0018pt>
-File: ../Obrazy/Spr2/optGauss.png Graphic file (type png)
-<use ../Obrazy/Spr2/optGauss.png>
-Package pdftex.def Info: ../Obrazy/Spr2/optGauss.png  used on input line 375.
-(pdftex.def)             Requested size: 386.95897pt x 188.23703pt.
-<../Obrazy/Spr2/optEpanechnikov.png, id=264, 1387.584pt x 675.0018pt>
-File: ../Obrazy/Spr2/optEpanechnikov.png Graphic file (type png)
-<use ../Obrazy/Spr2/optEpanechnikov.png>
-Package pdftex.def Info: ../Obrazy/Spr2/optEpanechnikov.png  used on input line
- 382.
-(pdftex.def)             Requested size: 386.95897pt x 188.23703pt.
- [15 <../Obrazy/Spr2/optBoxcar.png> <../Obrazy/Spr2/optGauss.png>]
-<../Obrazy/Spr2/optCosine.png, id=271, 1387.584pt x 675.0018pt>
-File: ../Obrazy/Spr2/optCosine.png Graphic file (type png)
-<use ../Obrazy/Spr2/optCosine.png>
-Package pdftex.def Info: ../Obrazy/Spr2/optCosine.png  used on input line 389.
-(pdftex.def)             Requested size: 386.95897pt x 188.23703pt.
-<../Obrazy/Spr2/cauchyDist.png, id=276, 462.528pt x 346.896pt>
-File: ../Obrazy/Spr2/cauchyDist.png Graphic file (type png)
-<use ../Obrazy/Spr2/cauchyDist.png>
-Package pdftex.def Info: ../Obrazy/Spr2/cauchyDist.png  used on input line 409.
-
+<../Obrazy/Spr3/dynamiczny_err_mnk_porownanie.png, id=271, 462.528pt x 346.896p
+t>
+File: ../Obrazy/Spr3/dynamiczny_err_mnk_porownanie.png Graphic file (type png)
+<use ../Obrazy/Spr3/dynamiczny_err_mnk_porownanie.png>
+Package pdftex.def Info: ../Obrazy/Spr3/dynamiczny_err_mnk_porownanie.png  used
+ on input line 382.
 (pdftex.def)             Requested size: 386.95897pt x 290.23143pt.
- [16 <../Obrazy/Spr2/optEpanechnikov.png> <../Obrazy/Spr2/optCosine.png>]
-<../Obrazy/Spr2/cauchyBladKernele.png, id=287, 1387.584pt x 675.0018pt>
-File: ../Obrazy/Spr2/cauchyBladKernele.png Graphic file (type png)
-<use ../Obrazy/Spr2/cauchyBladKernele.png>
-Package pdftex.def Info: ../Obrazy/Spr2/cauchyBladKernele.png  used on input li
-ne 416.
-(pdftex.def)             Requested size: 386.95897pt x 188.23703pt.
-<../Obrazy/Spr2/cauchyBladParametry.png, id=288, 1387.584pt x 675.0018pt>
-File: ../Obrazy/Spr2/cauchyBladParametry.png Graphic file (type png)
-<use ../Obrazy/Spr2/cauchyBladParametry.png>
-Package pdftex.def Info: ../Obrazy/Spr2/cauchyBladParametry.png  used on input 
-line 423.
-(pdftex.def)             Requested size: 386.95897pt x 188.23703pt.
- [17 <../Obrazy/Spr2/cauchyDist.png> <../Obrazy/Spr2/cauchyBladKernele.png>]
-<../Obrazy/Spr2/cauchyBladNielin.png, id=295, 1387.584pt x 675.0018pt>
-File: ../Obrazy/Spr2/cauchyBladNielin.png Graphic file (type png)
-<use ../Obrazy/Spr2/cauchyBladNielin.png>
-Package pdftex.def Info: ../Obrazy/Spr2/cauchyBladNielin.png  used on input lin
-e 430.
-(pdftex.def)             Requested size: 386.95897pt x 188.23703pt.
+ [16 <../Obrazy/Spr3/odp_norm.png> <../Obrazy/Spr3/dynamiczny_err_mnk.png>]
+<../Obrazy/Spr3/err_uogolniony.png, id=282, 462.528pt x 346.896pt>
+File: ../Obrazy/Spr3/err_uogolniony.png Graphic file (type png)
+<use ../Obrazy/Spr3/err_uogolniony.png>
+Package pdftex.def Info: ../Obrazy/Spr3/err_uogolniony.png  used on input line 
+402.
+(pdftex.def)             Requested size: 386.95897pt x 290.23143pt.
+ [17 <../Obrazy/Spr3/dynamiczny_err_mnk_porownanie.png>]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 410.
+
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 410.
  (./Sprawozdanie.bbl
 LaTeX Font Info:    Try loading font information for T1+cmtt on input line 5.
+
 (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 ))
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 441.
- [18 <../Obrazy/Spr2/cauchyBladParametry.png> <../Obrazy/Spr2/cauchyBladNielin.
-png>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 441.
-
-(./Sprawozdanie.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 441.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 441.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 419.
+ [18 <../Obrazy/Spr3/err_uogolniony.png>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 419.
+ (./Sprawozdanie.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 419.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 419.
 Package rerunfilecheck Info: File `Sprawozdanie.out' has not changed.
-(rerunfilecheck)             Checksum: 243F385A0CBF71F5E3F73243A0898C54;1094.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 441.
+(rerunfilecheck)             Checksum: 99743C97F8537CB6D8251EDB4F104E6E;1459.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 419.
  ) 
 Here is how much of TeX's memory you used:
- 8629 strings out of 494485
- 129004 string characters out of 6175563
- 232317 words of memory out of 5000000
- 12078 multiletter control sequences out of 15000+600000
- 21146 words of font info for 57 fonts, out of 8000000 for 9000
+ 7619 strings out of 494485
+ 109230 string characters out of 6175563
+ 215434 words of memory out of 5000000
+ 11073 multiletter control sequences out of 15000+600000
+ 23915 words of font info for 66 fonts, out of 8000000 for 9000
  56 hyphenation exceptions out of 8191
- 36i,7n,39p,422b,393s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 28i,9n,32p,485b,338s stack positions out of 5000i,500n,10000p,200000b,80000s
  </home/maciek/.texlive2018/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1200.60
 0pk> </home/maciek/.texlive2018/texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1200.
 600pk> </home/maciek/.texlive2018/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx120
@@ -651,16 +663,20 @@ cbx1728.600pk> </home/maciek/.texlive2018/texmf-var/fonts/pk/ljfour/jknappen/ec
 ec/ecbx2074.600pk> </home/maciek/.texlive2018/texmf-var/fonts/pk/ljfour/jknappe
 n/ec/ecrm2074.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
 cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmm
-i12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb
-></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/
-share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/t
-exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on Sprawozdanie.pdf (18 pages, 1658099 bytes).
+i10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pf
+b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr
+/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/
+texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb></usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmsy8.pfb>
+Output written on Sprawozdanie.pdf (18 pages, 919789 bytes).
 PDF statistics:
- 640 PDF objects out of 1000 (max. 8388607)
- 300 compressed objects within 3 object streams
- 84 named destinations out of 1000 (max. 500000)
- 266 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 661 PDF objects out of 1000 (max. 8388607)
+ 316 compressed objects within 4 object streams
+ 80 named destinations out of 1000 (max. 500000)
+ 229 words of extra memory for PDF output out of 10000 (max. 10000000)
 

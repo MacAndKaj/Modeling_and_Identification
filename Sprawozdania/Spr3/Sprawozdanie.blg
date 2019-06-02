@@ -1,0 +1,50 @@
+This is BibTeX, Version 0.99d (TeX Live 2019/dev/Debian)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: Sprawozdanie.aux
+The style file: plabbrv.bst
+Database file #1: ../bibliografia.bib
+Warning--to sort, need author or key in python3
+Warning--to sort, need author or key in numpy
+Warning--to sort, need author or key in matplotlib
+You've used 6 entries,
+            2129 wiz_defined-function locations,
+            528 strings with 4395 characters,
+and the built_in function-call counts, 1233 in all, are:
+= -- 114
+> -- 36
+< -- 0
++ -- 16
+- -- 10
+* -- 60
+:= -- 186
+add.period$ -- 15
+call.type$ -- 6
+change.case$ -- 21
+chr.to.int$ -- 0
+cite$ -- 9
+duplicate$ -- 52
+empty$ -- 136
+format.name$ -- 10
+if$ -- 278
+int.to.chr$ -- 0
+int.to.str$ -- 6
+missing$ -- 4
+newline$ -- 30
+num.names$ -- 6
+pop$ -- 50
+preamble$ -- 1
+purify$ -- 17
+quote$ -- 0
+skip$ -- 42
+stack$ -- 0
+substring$ -- 30
+swap$ -- 6
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 20
+warning$ -- 3
+while$ -- 6
+width$ -- 7
+write$ -- 56
+(There were 3 warnings)

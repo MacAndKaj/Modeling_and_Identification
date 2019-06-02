@@ -74,15 +74,15 @@ Aby udowodnić poprawność i skuteczność działania estymatorów empirycznych
 Jest on definiowany wzorem \ref{eq:bladu} oraz analogicznie dla wariancji obciążonej (\ref{eq:blads}) i nieobciążonej (\ref{eq:bladS}).
 
 \begin{equation}\label{eq:bladu}
-Err\{\hat{\mu}_{N};\mu\}=\frac{1}{L}\sum\limits_{l=1}^{L}\Big[\hat{\mu}_{N}^{[l]}-\mu\Big]
+Err\{\hat{\mu}_{N};\mu\}=\frac{1}{L}\sum\limits_{l=1}^{L}\Big[\hat{\mu}_{N}^{[l]}-\mu\Big]^{2}
 \end{equation}
 
 \begin{equation}\label{eq:blads}
-Err\{\hat{s}_{N};\mu\}=\frac{1}{L}\sum\limits_{l=1}^{L}\Big[\hat{s}_{N}^{[l]}-s\Big]
+Err\{\hat{s}_{N};\mu\}=\frac{1}{L}\sum\limits_{l=1}^{L}\Big[(\hat{s}_{N}^{[l]})^{2}-\sigma^2\Big]^{2}
 \end{equation}
 
 \begin{equation}\label{eq:bladS}
-Err\{\hat{S}_{N};\mu\}=\frac{1}{L}\sum\limits_{l=1}^{L}\Big[\hat{S}_{N}^{[l]}-S\Big]
+Err\{\hat{S}_{N};\mu\}=\frac{1}{L}\sum\limits_{l=1}^{L}\Big[(\hat{S}_{N}^{[l]})^{2}-\sigma^2\Big]^{2}
 \end{equation}
 
 \begin{figure}[H]
@@ -141,7 +141,7 @@ D_{N}=\sup_{x}|\hat{F}_{N}(x)-F(x)|
 \subsection{Badanie nieznanej próby}
 W celu sprawdzenia sposobu działania dystrybuanty empirycznej wykorzystano ciąg liczb losowych pochodzący z nieznanego rozkładu prawdopodobieństwa.
 Aby określić z z jakiego rozkładu mogą pochodzić próbki wyznaczono dystrybuantę empiryczną oraz przetestowano estymator pod kątem trzech hipotetycznych rozkładów: $\mathcal{N}(1,1)$, $\mathcal{N}(0,5)$ oraz Cauchy'ego z parametrami $x_{0}=0$ oraz $\gamma=1$.
-Na rysunkach \ref{fig:normal11}, \ref{fig:normal11}, \ref{fig:normal11} przedstawiono przebiegi estymatora na tle dystrybuant ww. rozkładów oraz błąd w zależności od ilości wziętych próbek.
+Na rysunkach \ref{fig:normal11}, \ref{fig:normal05}, \ref{fig:cauchy01} przedstawiono przebiegi estymatora na tle dystrybuant ww. rozkładów oraz błąd w zależności od ilości wziętych próbek.
 Na tej podstawie można wnioskować, że najprawdopodobniej próbki pochodzą z rozkładu Cauchy'ego.
 
 \begin{figure}[H]

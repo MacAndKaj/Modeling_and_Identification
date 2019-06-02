@@ -1,0 +1,419 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage[T1]{fontenc}
+\usepackage[polish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{multicol}
+
+\author{Maciej Kajdak\\nr indeksu: 226256}
+\title{Sprawozdanie 3 \\ \textbf{Modelowanie i identyfikacja}}
+\renewcommand{\thesection}{\arabic{section}}
+
+\begin{document}
+\maketitle
+\section{Wstęp}
+Problem badawczy postawiony w trakcie kolejnych laboratoriów traktował o identyfikacji statycznych systemów liniowych oraz nieliniowych.
+W tym celu modele, używane podczas prowadzonych badań przedstawiały systemy typu SISO oraz MISO.
+Sprawdzano wpływ poszczególnych parametrów modelu oraz innych czynników na jakość identyfikacji badanego modelu.
+Badania zostały przeprowadzone w środowisku Python w wersji 3.7.1 \cite{python3} wraz z pakietami numpy w wersji 1.15.4 \cite{numpy} oraz matplotlib w wersji 3.0.2 \cite{matplotlib}.
+Wszystkie stworzone w ramach laboratoriów skrypty można znaleźć w \href{https://github.com/MacAndKaj/Modeling\_and\_Identification}{\underline{repozytorium twórcy w serwisie Github}}
+
+
+\begin{multicols}{2}
+		\begin{figure}[H]
+		\centering
+		\includegraphics[width=.45\textwidth]{../Obrazy/Spr3/MIMO.png} 
+		\caption{Statyczny system nieliniowy typu SISO}
+		\label{fig:SISO}
+		\end{figure}
+	\columnbreak		
+		\begin{figure}[H]
+		\centering
+		\includegraphics[width=.52\textwidth]{../Obrazy/Spr3/MISO.png} 
+		\caption{Statyczny system liniowy typu MISO}
+		\label{fig:MISO}
+		\end{figure}
+\end{multicols}
+
+\newpage
+\section{Nieparametryczna identyfikacja statycznych systemów nieliniowych}
+W celu badań opracowano model systemu \ref{fig:SISO}. Model obiektu opisany jest układem \ref{eq:SISO}, a jako parametr modelu przyjęto $a=1$.
+Sygnał wejściowy \{$Z_{n}$\} to sygnał o rozkładzie jednostajnym $\mathcal{U}[-\pi,\pi]$
+Sygnałem zakłócającym \{$Z_{n}$\} jest sygnał o rozkładzie normalnym $\mathcal{N}(0,\sigma^{2})$, gdzie $\sigma=0.2$.
+Rysunek \ref{eq:SISO} obrazuje przedstawiony model, a przykładowy zbiór obserwacji wyjścia systemu wraz z odpowiedzią samego obiektu na podane wymuszenie pokazano na rysunku \ref{fig:z1_pierwszy}.
+Problemem tutaj postawionym jak znalezienie jak najlepszego estymatora, który przedstawiałby tylko przebieg odpowiedzi obiektu niejako odfiltrowując zaszumienia.
+
+
+\begin{equation}\label{eq:SISO}
+m(x)=\begin{cases} 
+ax^{2} & dla\ |x| \in [0,1) \\
+1 & dla\ |x| \in [1,2) \\
+0 & dla\ |x| \in [2,\infty) \\
+\end{cases}
+\end{equation}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=.8\textwidth]{../Obrazy/Spr3/z1_pierwszy.png} 
+\caption{Pomiary wyjściowe na tle nieliniowej charakterystyki systemu.}
+\label{fig:z1_pierwszy}
+\end{figure}
+
+\subsection{Estymator z bazą cosinusową}
+Przykład działania estymatora ortogonalnego, przedstawianego jako \ref{eq:est_mN}, dla odpowiednich założeń na $\hat{g}(x),\hat{h}(x)$ przedstawionych w instrukcji \cite{wachelLab7}, dla stałych $L=10,20,50$, $N=500$ oraz bazy cosinusowej pokazano na rysunku \ref{fig:cosinus}.
+Dość dobra estymacja, szczególnie w nieliniowych fragmentach charakterystyki pokazuje jak zachowuje się estymator ortogonalny dla badanego układu.
+Widać wpływ parametru L, działającego na "szybkość" dopasowywania się estymatora do szukanego przebiegu.
+
+\begin{equation}\label{eq:est_mN}
+\hat{m}_{N}(x)=\frac{\hat{g}(x)}{\hat{h}(x)}
+\end{equation}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{../Obrazy/Spr3/cosinus.png} 
+\caption{Estymator ortogonalny dla N=500}
+\label{fig:cosinus}
+\end{figure}
+
+
+\subsection{Badanie estymatora pod kątem optymalnej wartości stałej L}
+Naturalnym zdaje się poszukiwanie takiego parametru L, który pozwoli na jak najlepsze estymowanie poszukiwanego przebiegu.
+Poszukiwać go można na podstawie błędu, jaki popełniany jest przez estymator.
+W tym celu należy jednak zdefiniować błąd.
+Można wykorzystać do tego celu definicję \ref{eq:valid_L}, dla którego definiujemy stałą $Q=np.\ 100$ i na tej podstawie poszukiwać takiej wartości parametru L, dla którego błąd jest minimalny.
+
+\begin{equation}\label{eq:valid_L}
+valid(L)=\frac{1}{2Q}\sum_{q=-Q}^{Q}\Bigg[\hat{m}_{N}\bigg(\frac{2q}{Q}\bigg)-m\bigg(\frac{2q}{Q}\bigg)\Bigg]^{2}
+\end{equation}
+
+Dla badanego obiektu wygenerowano ciąg wartości błędów dla kolejnych wartości L z przedziału $[1,100]$. Wykres błędu w funkcji L pokazano na rysunku \ref{fig:valid_L}, przez dość niskie małe wartości błędu przedstawionym w skali logarytmicznej.
+Przy badaniu błędu kilkakrotnie okazuje się, że niskie wartości parametru L ($~20-30$) i $N=500$ zapewniają najmniejszą wartość błędu estymatora.
+Dla tak wybranego L wygenerowano również wykres estymatora na tle prawdziwego przebiegu, rysunek \ref{fig:best_L}.
+Estymator faktycznie dość dobrze estymuje badany przebieg jednak dość duże problemy pojawiają się przy nieciągłościach.
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=.8\textwidth]{../Obrazy/Spr3/valid_L.png} 
+\caption{Wykres błędu estymatora w funkcji L.}
+\label{fig:valid_L}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=.8\textwidth]{../Obrazy/Spr3/est_best_L.png} 
+\caption{Wykres estymatora ortogonalnego z bazą cosinusową dla wyznaczonego doświadczalnie parametru L.}
+\label{fig:best_L}
+\end{figure}
+
+\subsection{Badania ortogonalnego estymatora funkcji regresji dla zakłócenia o rozkładzie Cauchy'ego}
+Rozkład Cauchy'ego, jest rozkładem typu ciągłego, jednak przez brak zdefiniowanych momentów zwykłych i centralnych może sprawiać problemy podczas estymacji przebiegów od niego zależnych.
+Powtórzono część powyższych badań powtórzono dla zakłócenia o rozkładzie Cauchy'ego.
+W ten sam sposób poszukiwano dla jakich wartości stałej L błąd popełniany przez estymator będzie najmniejszy. Wykres błędu w funkcji L został przedstawiony na rysunku \ref{fig:cauchy_L}. Przeprowadzono badania dla kilku wartości $\gamma$.
+Co pierwsze można zauważyć, po spadku błędu o wysokiej wartości dla malych wartości L do niemalże minimum, błąd zaczyna dość wolno rosnąć wraz ze wzrostem L.
+Tak więc znowu pojawia się znak, że dla małych L ($~20-30$), estymator działa optymalnie (w tym przypadku optymalnie nie będzie jednak oznaczać dobrze). Dodatkowo, jeśli w rozkładzie Cauchy'ego skala jest dostatecznie mała estymator może działać poprawnie jednak wraz ze wzrostem skali spada użyteczność ortogonalnego estymatora funkcji regresji.
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{../Obrazy/Spr3/cauchy_porownanie_err.png} 
+\caption{Wykresy błędów estymatora dla różnych wartości $\gamma$.}
+\label{fig:cauchy_L}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{../Obrazy/Spr3/cauchy_porownanie_est.png} 
+\caption{Porownanie działania estymatora dla różnych skal rozkładu Cauchy'ego.}
+\label{fig:cauchy_est}
+\end{figure}
+
+
+\newpage
+\section{Identyfikacja statycznych systemów liniowych typu MISO}
+Kolejnym badanym typem systemów są systemy liniowe o wielu wejściach i jednym obserwowanym wyjściu. 
+Dla takiego statycznego i liniowego systemu o D wejściach definiuje się wektor D elementowy parametrów systemu .
+Dzięki takiemu przedstawieniu problemu wiemy, że na wyjściu samego modelu moglibyśmy zaobserwować jego odpowiedź na sygnały $X_{N}$, jednak z powodu obarczenia wyniku pomiaru pewnego rodzaju błędem, wynikowa wartość obserwacji jest zaszumiona.
+Taki szum również oznacza się wektorem -- $Z_{N}$, i dla takich sygnałów badana jest reakcja systemu na pobudzenie go sygnałem $X_{N}$, a wynik obserwacji wyraża się jako równanie \ref{eq:MISO}. Przedstawiono ten proces graficznie na rysunku \ref{fig:MISO}.
+
+\begin{equation}\label{eq:MISO}
+\textbf{Y}_{N} = \textbf{X}_{N}a^{*}+\textbf{Z}_{N}
+\end{equation}
+
+Do celów badań systemów MISO stworzono liniowy, statyczny układ, w którym sygnał wejściowy jest typu \textit{i.i.d.} o rozkładzie normalnym $\mathcal{N}(0,\sigma^{2})$, a zakłócenie rządzi się również rozkładem normalnym $\mathcal{N}(0,\sigma^{2})$.
+Parametry wektora $a^{*}$ zostały wygenerowane jako $a^{*}_{d} = sin(\frac{d\pi}{4})$, gdzie $d=1,...,D$.
+
+\subsection{Estymator parametrów systemu}
+Chcąc na podstawie wyjścia $Y_{N}$ systemu dowiedzieć się, jak wygląda prawdziwa, niezaszumiona reakcja obiektu na pobudzenie, można wykorzystać estymator metody najmniejszych kwadratów (MNK).
+Idea estymatora opiera się o wyrażenie \ref{eq:est_a}.
+Przykład estymacji odpowiedzi obiektu na sygnały $X_{N}$, gdzie każdy z D wejściowych sygnałów jest typu \textit{i.i.d.} o rozkładzie normalnym $\mathcal{N}(0,1)$, pokazano na rysunku \ref{fig:przyklad2}.
+Jak podpowiada intuicja, wraz ze wzrostem ilości badanych odpowiedzi estymacja jest dokładniejsza.
+\begin{equation}\label{eq:est_a}
+\hat{a}_N = (\textbf{X}_N^{T}\textbf{X}_N)^{-1}\textbf{X}_N^{T}\textbf{Y}_N
+\end{equation}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{../Obrazy/Spr3/przyklad2.png} 
+\caption{Przykład estymatora MNK dla badanego systemu.}
+\label{fig:przyklad2}
+\end{figure}
+
+\subsection{Macierz kowariancji estymatora}
+Aby sprawdzić w jakim stopniu wartości estymatora są zależne od siebie i czy w ogóle takie zjawisko występuje można zbudować dla estymatora jego macierz kowariancji.
+Dla estymatora $\hat{a}_{N}$ buduje się ją przy pomocy operacji \ref{eq:mac_kow}.
+Budowa takiej macierzy jest intuicyjnie dosyć prosta: na diaonali powinny znajdować się wartości wariancji kolejnych wartości estymatora, a na dalszych miejscach (dół i lewo) wartości kowariancji kolejnych wartości estymatora z wcześniejszymi. Dla wektora parametrów, ktore w żaden sposób nie są od siebie zależne spodziewać się można, że poza diagonalą macierz powinna się zerować.
+Z kolei na przekątnej, wartości wariancji estymatora powinny -- w zależności od jakości estymatora, zbiegać do 0 wraz ze zwiększeniem ilości pomiarów.
+
+Takie badania przeprowadzono dla stworzonego obiektu.
+Wyniki badań w postaci graficznych form macierzy kowariancji, przedstawiono na rysunku \ref{fig:mac_kow}. Jak można w pierwszy momencie zobaczyć, dla małej ilości próbek przypuszczenia się potwierdzają, trudne jest sprawdzenie zależności pomiędzy kolejnymi wartościami estymatora, gdy nie ma wystarczającej ilości danych do potwierdzenia tego faktu, jednak zwiększając ich liczbę, kratki poza diagonalą coraz bardziej ciemnieją.
+
+Co więcej można zauważyć, że maksymalne wartości przyjmowane przez elementy obrazków również maleją.
+Oznacza to, że wariancja estymatora $\hat{a}_{N}$ maleje, co skutkuje faktem, że mając więcej pomiarów pojawia się możliwość dokładniejszego estymowania, czyli ,,rozrzut'' estymowanych parametrów wokół prawdziwego przebiegu będzie coraz mniejsza.
+Jednak pojawia się pytanie: jaka ilość próbek będzie optymalna dla procesu estymacji przebiegu? Odpowiedź prawdopodobnie będzie prosta: to zależy od wymagań...
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{../Obrazy/Spr3/maceirze_kow_a.png} 
+\caption{Macierze kowariancji w zależności od ilości pomiarów.}
+\label{fig:mac_kow}
+\end{figure}
+
+\begin{equation}\label{eq:mac_kow}
+cov(\hat{a}_{N}) = \sigma_{Z}^{2}(\textbf{X}_N^{T}\textbf{X}_N)^{-1}
+\end{equation}
+
+
+\subsection{Błąd estymatora}
+Aby ostatecznie zdecydować, czy estymator spełnia stawiane przed nim wymagania można przetestować go pod kątem błędu jaki popełnia.
+Naturalne będzie zakładanie, że im mniejszy błąd tym lepsza jakość estymacji.
+W tym celu można posłużyć się błędem definiowanym jako \ref{eq:blad}.
+Obliczając taki błąd dla kolejnych N mozna sprawdzić, jak wzrost N wpływa na błąd popełniany podczas wyznaczania estymatora.
+
+\begin{equation}\label{eq:blad}
+Err\{\hat{a}_{N}\}=\frac{1}{L}\sum_{l=1}^{L}\Vert\hat{a}_{N}^{[l]}-a^{*}\Vert^{2}
+\end{equation}
+
+Przeprowadzono testy estymatora, sprawdzając wpływ liczby pomiarów na błąd popełniany podczas estymacji. Dodatkowo sprawdzono, jaki wpływ na popełniany błąd ma wariancja sygnału zakłócającego.
+Sygnał zakłócający, dla przypomnienia , to sygnał typu \textit{i.i.d.} o rozkładzie normalnym $\mathcal{N}(0,\sigma_{Z}^{2})$, gdzie w ramach testu sprawdzano jak wartości $\sigma_{Z}^{2} \in \{0.01,0.1,1,10\}$ wpływają na błąd.
+Wynik badań przedstawiono na rysunku \ref{fig:blad}, gdzie można zaobserwować gwałtowny spadek błędu, już przy kilkudziesięciu próbkach, który poźniej znacząco zwalnia jednak sukcesywnie dąży do zera. Wyniki przedstawiono w skali logarytmicznej, aby pokazać jak znaczące są różnice pomiędzy kolejnymi wartościami błędów.
+Na zauważenie zasługuje również fakt, że większa wariancja zakłóceń skutkuje większym błędem popełnianym nie tylko przy małej ilości próbek, lecz także przy wzrastającej ich liczbie.
+Jednak zauważyć również można, że zwiększenie wariancji sygnału zakłócającego dziesięciokrotnie, zwiększa w takim samym stopniu wartość błędu. Może to być pewna zależność.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{../Obrazy/Spr3/err_est_a.png} 
+\caption{Błąd estymatora dla różnych wariancji zakłóceń.}
+\label{fig:blad}
+\end{figure}
+
+\newpage
+\section{Identyfikacja statycznych liniowych systemów MISO przy skorelowanych zakłóceniach}
+Znając już własności estymatora parametrów nienanego systemu liniowego typu MISO można pokusić się o próbę wyznaczenia tych samych parametrów, jednak zakładając, że zakłócenia, które wpływają na pomiary odpowiedzi układu, są w jakiś sposób ze sobą powiązane -- innymi słowy łączy je pewna zależność.
+W celu badań estymatora metody najmniejszych kwadratów dla takiego przypadku wykorzystano model systemu \ref{eq:MISO}, z rysunku \ref{fig:MISO}.
+Tutaj jednak sygnał zakłócający generowany jest w sposób opisany jako równaniem \ref{eq:sygnal_Z}, w którym $b_{1} = 0.5$.
+Wynika z niego, że kolejne wartości zakłóceń są powiązane ze swoim poprzednikiem.
+
+\begin{equation}\label{eq:sygnal_Z}
+\boldsymbol{Z}_{N} = \varepsilon_{n}+b_{1}\varepsilon_{n-1}
+\end{equation}
+
+Wykorzystując taki sygnał zakłócający, wygenerowano ciąg obserwacji $\boldsymbol{Y_{N}}$, który wraz z pozostałymi elementami $\boldsymbol{X_{N}},a^{*}$, będącymi tymi samymi realizacjami co w przypadku poprzednich badań, posłużył do określania jakości estymatora metody najmniejszych kwadratów dla układu ze skorelowanym zakłóceniem. 
+Wynik estymacji pokazano na rysunku \ref{fig:przyklad3} dla różnych ilości badanych obserwacji.
+Ponownie potwierdza się teoria, że zbyt mała liczba próbek nie pozwala na dokładne działanie estymatora.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{../Obrazy/Spr3/PRZYKLAD3.png} 
+\caption{Przykład działania estymatora dla systemu ze skorelowanym zakłóceniem.}
+\label{fig:przyklad3}
+\end{figure}
+
+\subsection{Macierz kowariancji zakłócenia skorelowanego}
+W celu sprawdzenia w jakim stopniu zakłócenie jest skorelowane można przedsatwić taką relację w postaci macierzy kowariancji.
+Jak pokazano w poprzednich badaniach, dla nieskorelowanego sygnału macierz powinna być złożona z samych zer oprócz diagonali, która złożona jest z wariancji sygnału.
+Spodziewać się można, że dla sygnału skorelowanego macierz będzie posiadała niezerowe elementy także poza diagonalą.
+Macierz kowariancji jest przedstawiana tak jak pokazano na równaniu \ref{eq:mac_kow_skor}.
+Dodatkowo każdy element macierzy spełnia zależność \ref{eq:cov_cjk}. Z powodu faktu, że sygnał $\boldsymbol{Z}_{N}$ jest skorelowany, a kolejne elementy są uzyskiwane z zależności \ref{eq:sygnal_Z}.
+
+\begin{equation}\label{eq:mac_kow_skor}
+\boldsymbol{R} = cov\{\boldsymbol{Z}_{N}\}=E\{\boldsymbol{Z}_{N}\boldsymbol{Z}_{N}^T\}=\begin{bmatrix}
+c_{11} & c_{12} & \dots & c_{1N}\\
+c_{21} & c_{22} &       & \\
+\vdots & & \ddots & \\
+c_{N1} & \dots & & c_{NN}\\
+\end{bmatrix}
+\end{equation}
+
+\begin{equation}\label{eq:cov_cjk}
+c_{jk} = cov\{Z_{j},Z_{k}\} = E\{Z_{j}Z_{k}\}
+\end{equation}
+
+Wykorzystując zależności \ref{eq:cov_Zk}, \ref{eq:cov_Zjk} oraz przyjęte $E\{\varepsilon_{n}\}=0,Var\{\varepsilon_{n}\}=1,b_{1}=0.5$ otrzymano postać macierzy \textbf{R} przedstawioną jako 
+
+\begin{equation}\label{eq:cov_Zjk}
+cov\{Z_{j},Z_{k}\} = E\{Z_{j}Z_{k}\} = E\{\varepsilon_{j}\varepsilon_{k} + b_{1}\varepsilon_{j}\varepsilon_{k-1} + b_{1}\varepsilon_{j-1}\varepsilon_{k} + b_{1}^2b_{1}\varepsilon_{j-1}\varepsilon_{k-1}\}
+\end{equation}
+
+\begin{equation}\label{eq:cov_Zk}
+cov\{Z_{j},Z_{k}\} = \begin{cases} Var\{\varepsilon_{k}\} + b_{1}^{2}Var\{\varepsilon_{k-1}\} = 1.25 &,\ dla\ j=k \\ b_{1}E\{\varepsilon_{j-1}^{2}\} = b_{1}Var\{\varepsilon_{n}\} = 0.5 &,\ dla\ j = k-1 \lor k=j-1\\0 &,\ dla\ j \neq k \lor j \neq k-1 \lor k \neq j-1
+\end{cases}
+\end{equation}
+
+
+\begin{equation}\label{eq:mac_kow_ZN}
+\boldsymbol{R} = cov\{\boldsymbol{Z}_{N}\}=\begin{bmatrix}
+1.25 & 0.5 & 0&\dots & 0\\
+0.5 & 1.25 & 0.5 &      & \\
+0 & 0.5 & 1.25  &    & \\
+\vdots & & & \ddots & \\
+0 & \dots && & 1.25\\
+\end{bmatrix}
+\end{equation}
+
+\subsection{Kowariancja estymatora $\hat{a}_{N}$}
+\begin{figure}[H]
+\centering
+
+\caption{Opis}
+\label{fig:zdjecie}
+\end{figure}
+
+
+\newpage
+\section{Identyfikacja liniowych systemów dynamicznych ze skorelowanym zakłóceniem}
+Po przeanalizowaniu własności estymatora metody najmniejszych kwadratów dla przypadków systemów statycznych można zbadać jak zachowuje się taki estymator, gdy używany jest dla przypadku systemu dynamicznego.
+W takim przypadku poszukiwane są nieznane parametry $b^{*}$ systemu \ref{eq:dynamiczny}.
+System ten można przedstawić w postaci graficznej tak jak pokazano na rysunku \ref{fig:dynamiczny_MISO}. W ten sposób można zobaczyć, że system reaguje nie tylko na obecną wartość sygnału wejściowego, ale takżę na jego wcześniejsze wartości. Przez to może być pokazany jako system wielowejściowy.
+Dla uproszczenia jednak lepszym wyjściem jest przedstawienie takiego systemu jako układu z jednym wejściem, co pokazano na rysunku \ref{fig:dynamiczny_SISO}. Jest to spowodowane faktem, że możemy układowi przypisać tzw.\ ,,pamięć'', która pozwala na używanie $s$ wcześniejszych wartości wejściowych, a pobieranie tylko obecnej.
+Dzięki temu możemy rozpatrywać taki system jako układ z jednym wejściem oraz jednym wyjściem.
+
+\begin{multicols}{2}
+		\begin{figure}[H]
+		\centering
+		\includegraphics[width=.45\textwidth]{../Obrazy/Spr3/dynamiczny.png} 
+		\caption{System dynamiczny przedstawiony w postaci MISO (wiele wejść obrazujących wpływ wcześniejszych wartości sygnału wejściowego).}
+		\label{fig:dynamiczny_MISO}
+		\end{figure}
+	\columnbreak		
+		\begin{figure}[H]
+		\centering
+		\includegraphics[width=.52\textwidth]{../Obrazy/Spr3/dynamiczny_SISO.png} 
+		\caption{System dynamicznyc przedstawiony w postaci SISO (jako uproszczenie bazujące na ,,pamięci'' systemu).}
+		\label{fig:dynamiczny_SISO}
+		\end{figure}
+\end{multicols}
+
+
+Na wyjście systemu w takim przypadku ma wpływ nie tylko obecna wartość sygnału wejściowego, ale także $s$ wartości poprzednich, których wpływ na obecne wyjście określają parametry $b_{1}^{*},b_{2}^{*},\dots,b_{s}^{*}$.
+
+\subsection{Wyznaczanie estymatora odpowiedzi impulsowej obiektu}
+Przechodząc do badań potrzebna była generacja dwóch sygnałów: wejściowego $\{U_{n}\}$ oraz zakłócającego $Z_{n}=\{e_{n}\}$. Pierwszy z nich wygenerowano jako sygnał o rozkładzie normalnym $\mathcal{N}(1,\frac{1}{10})$. Z kolei jako zakłócenie przyjęto biały szum , czyli sygnał o zerowej średniej wartości oraz nieskorelowanych próbkach, czyli również sygnał o rozkładzie normalnym $\mathcal{N}(0,1)$.
+Dodatkowo przyjęto, że $s=10$, a wektor parametrów systemu $b^{*}$ będzie posiadał wartości $b^{*}=[1,e^{-\frac{1}{3}},e^{-\frac{2}{3}},\dots,e^{-\frac{s}{3}}]^{T}$.
+Badany obiekt jest stabilny co udowadnia rysunek \ref{fig:dynamiczny_odp} przedstawiający odpowiedź systemu na pobudzenie impulsowe.
+
+\begin{equation}\label{eq:dynamiczny}
+Y_{n} = b_{0}^{*}U_{n} + b_{1}^{*}U_{n-1} + \dots + b_{s}^{*}U_{n-s} + Z_{n}
+\end{equation}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{../Obrazy/Spr3/odpowiedz_impulsowa.png} 
+\caption{Odpowiedź systemu na pobudzenie impulsowe.}
+\label{fig:dynamiczny_odp}
+\end{figure}
+
+Estymator odpowiedzi impulsowej wyznaczony dla tak wygenerowanej odpowiedzi impoulsowej obliczono na podstawie wzoru \ref{eq:estymator_odp_imp}.
+Dzięki temu wygenerowano estymator parametrów systemu $b^{*}$, a jego wykres pokazano na rysunku \ref{fig:estymator_b}.
+Dla kilku wartości N wyniki nie są zadowalające choć bliskie prawdziwym wartościom.
+
+\begin{equation}\label{eq:estymator_odp_imp}
+\hat{b}_{N}=(\Phi_{N}^{T}\Phi_{N})^{-1}\Phi_{N}^{T}\boldsymbol{Y}_{N}
+\end{equation}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{../Obrazy/Spr3/dynamiczny_b.png} 
+\caption{Wykres estymatora paramtetrów systemu na tle prawdziwej funkcji do której należą parametry.}
+\label{fig:estymator_b}
+\end{figure}
+
+\subsection{Pobudzenie sygnałem o danej wartości z pewnym szumem}
+Kolejne badanie, któremu poddany został system, polegało na pobudzeniu systemu sygnałem o rozkładzie normalnym $\mathcal{N}(1,\frac{1}{10})$. Wynik takiego pobudzenia przedstawiono na rysunku \ref{fig:odp_norm}. 
+Widoczna charakterystyka obiektu rozmyta przez szum zakłócenia.
+W taki sam sposób wygenerowano estymator parametrów, ale w tym przypadku zrobiono to dla różnych ilości pomiarów.
+Dodatkowo test powtórzono $L=100$ oraz dla każdego zbioru obserwacji wejścia i wyjścia, a następnie obliczono błędy popełniane przy każdej estymacji.
+Rozmiary błędów w funkcji N przedstawiono na rysunku \ref{fig:blad_mnk}.
+Jak widać dla tak postawionego problemu, mimo że błąd spada to i tak utrzymuje się na ogromnych wartościach rzędu $10^{6}$ co oznacza, że w tym przypadku estymator, nie jest zgodny.
+Porównano również działanie estymatora z przypadkiem, gdy zakłócenie jest sygnałem skorelowanym.
+Wygenerowano więc sygnał zakłóceń w postaci \ref{eq:zakl_skorel} i porównano oba wyniki (wykresy błędów), przedstawiono je na rysunku \ref{fig:blad_mnk_porownanie}.
+Również w tym przypadku estymator okazał się niezgodny.
+Dodatkowo skonstruowano macierz kowariancji zakłóceń (\ref{eq:zakl_skorel}), która przedstawiana jest tak samo jak w przypadku \ref{eq:mac_kow_skor} i sprawdzono jej osobliwość.
+Obliczając wyznacznik tak powstałej macierzy okazało się, że $det(\boldsymbol{R})=1.(3)$, więc nie ma mowy o osobliwości macierzy $\boldsymbol{R}$.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=.8\textwidth]{../Obrazy/Spr3/odp_norm.png} 
+\caption{Odpowiedź zaszumiona systemu na tle odpowiedzi samego obiektu.}
+\label{fig:odp_norm}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=.8\textwidth]{../Obrazy/Spr3/dynamiczny_err_mnk.png} 
+\caption{Wykres błędu estymatora w funkcji N.}
+\label{fig:blad_mnk}
+\end{figure}
+
+\begin{equation}\label{eq:zakl_skorel}
+Z_{N}=e_{n}+\alpha e_{n-1}
+\end{equation}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=.8\textwidth]{../Obrazy/Spr3/dynamiczny_err_mnk_porownanie.png} 
+\caption{Porównanie błędów dla dwóch rodzajów zakłóceń.}
+\label{fig:blad_mnk_porownanie}
+\end{figure}
+
+
+W takim wypadku pojawia się pytanie, co można zrobić, aby stworzyć estymator, który w miarę możliwości będzie odpowiadał prawdziwym parametrom systemu.
+W drugiej części przetestowano estymator \textit{uogólnionej metody najmniejszych kwadratów} zgodnie ze wzorem \ref{eq:uogolniony}.
+
+\begin{equation}\label{eq:uogolniony}
+\hat{b}_{N}^{GLS} = [\Phi_{N}^{T}\boldsymbol{R}^{-1}\Phi]^{-1}\Phi_{N}^{T}\boldsymbol{R}^{-1}\boldsymbol{Y}_{n}
+\end{equation}
+
+Następnie, podobnie jak w poprzednim teście, wyznaczono błędy popełniane przez estymator dla dwóch różnych rodzajów zakłóceń.
+Wyniki testu przedstawiono w postaci wykresu na rysunku \ref{fig:err_uogolniony}.
+Wykres wygląda podobnie do tego przedstawionego na rysunku \ref{fig:blad_mnk_porownanie}, jednak widoczne jest zmniejszenie błędu. Skala błędu jest 2 razy mniejsza niż w przypadku poprzednim i stosunkowo szybko zbiega do zera porównując z estymatorem \ref{eq:estymator_odp_imp}.
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=.8\textwidth]{../Obrazy/Spr3/err_uogolniony.png} 
+\caption{Błędy estymatora uogólnionej metody najmniejszych kwadratów.}
+\label{fig:err_uogolniony}
+\end{figure}
+
+
+\section{Wnioski}
+\begin{itemize}
+\item Identyfikacja modelu w sytuacji, w której brak jakichkolwiek informacji o badanym obiekcie...
+\end{itemize}
+
+
+
+\nocite{rachunek2006jakubowski}
+\nocite{wstep2001jakubowski}
+\bibliographystyle{plabbrv} 
+\bibliography{../bibliografia}
+\end{document}

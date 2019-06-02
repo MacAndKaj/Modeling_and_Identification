@@ -10,6 +10,8 @@
 \usepackage[T1]{fontenc}
 \usepackage[polish]{babel}
 \usepackage[utf8]{inputenc}
+\usepackage{caption}
+\usepackage{subcaption}
 
 \author{Maciej Kajdak\\nr indeksu: 226256}
 \title{Sprawozdanie 2 \\ \textbf{Modelowanie i identyfikacja}}
@@ -72,15 +74,15 @@ Aby udowodnić poprawność i skuteczność działania estymatorów empirycznych
 Jest on definiowany wzorem \ref{eq:bladu} oraz analogicznie dla wariancji obciążonej (\ref{eq:blads}) i nieobciążonej (\ref{eq:bladS}).
 
 \begin{equation}\label{eq:bladu}
-Err\{\hat{\mu}_{N};\mu\}=\frac{1}{L}\sum\limits_{l=1}^{L}\Big[\hat{\mu}_{N}^{[l]}-\mu\Big]
+Err\{\hat{\mu}_{N};\mu\}=\frac{1}{L}\sum\limits_{l=1}^{L}\Big[\hat{\mu}_{N}^{[l]}-\mu\Big]^{2}
 \end{equation}
 
 \begin{equation}\label{eq:blads}
-Err\{\hat{s}_{N};\mu\}=\frac{1}{L}\sum\limits_{l=1}^{L}\Big[\hat{s}_{N}^{[l]}-s\Big]
+Err\{\hat{s}_{N};\mu\}=\frac{1}{L}\sum\limits_{l=1}^{L}\Big[(\hat{s}_{N}^{[l]})^{2}-\sigma^2\Big]^{2}
 \end{equation}
 
 \begin{equation}\label{eq:bladS}
-Err\{\hat{S}_{N};\mu\}=\frac{1}{L}\sum\limits_{l=1}^{L}\Big[\hat{S}_{N}^{[l]}-S\Big]
+Err\{\hat{S}_{N};\mu\}=\frac{1}{L}\sum\limits_{l=1}^{L}\Big[(\hat{S}_{N}^{[l]})^{2}-\sigma^2\Big]^{2}
 \end{equation}
 
 \begin{figure}[H]
@@ -139,7 +141,7 @@ D_{N}=\sup_{x}|\hat{F}_{N}(x)-F(x)|
 \subsection{Badanie nieznanej próby}
 W celu sprawdzenia sposobu działania dystrybuanty empirycznej wykorzystano ciąg liczb losowych pochodzący z nieznanego rozkładu prawdopodobieństwa.
 Aby określić z z jakiego rozkładu mogą pochodzić próbki wyznaczono dystrybuantę empiryczną oraz przetestowano estymator pod kątem trzech hipotetycznych rozkładów: $\mathcal{N}(1,1)$, $\mathcal{N}(0,5)$ oraz Cauchy'ego z parametrami $x_{0}=0$ oraz $\gamma=1$.
-Na rysunkach \ref{fig:normal11}, \ref{fig:normal11}, \ref{fig:normal11} przedstawiono przebiegi estymatora na tle dystrybuant ww. rozkładów oraz błąd w zależności od ilości wziętych próbek.
+Na rysunkach \ref{fig:normal11}, \ref{fig:normal05}, \ref{fig:cauchy01} przedstawiono przebiegi estymatora na tle dystrybuant ww. rozkładów oraz błąd w zależności od ilości wziętych próbek.
 Na tej podstawie można wnioskować, że najprawdopodobniej próbki pochodzą z rozkładu Cauchy'ego.
 
 \begin{figure}[H]
@@ -187,13 +189,33 @@ Jednym z ważniejszych twierdzeń w teorii probabilistyki jest właśnie central
 Generując ciągle próbki o tej samej wartości oczekiwanej oraz tej samej wariancji stale zwiększając liczbę wygenerowanych próbek można zaobserwować, że histogram próbek coraz bardziej przypominać będzie rozkład normalny.
 Wykres przedstawiony na rysunku \ref{fig:ctg} przedstawia kolejne generowane ciągi próbek o tej samej wariancji i wartości oczekiwanej. 
 Jak można zauważyć coraz mocniejsza żółć środkująca się w poziomie oznacza, że histogram generowanych próbek zbiega do rozkładu normalnego.
-Lepiej można ten proces zauważyć na rysunkach , które są przekrojami wykresu z rysunku \ref{fig:ctg} z początku i końca generowania kolejnych prób.
+Lepiej można ten proces zauważyć na rysunkach , które są przekrojami wykresu z rysunku \ref{fig:ctg} z początku, połowy i końca generowania kolejnych prób.
+Wraz ze wzrostem wygenerowanych próbek rozkład budowany na ich podstawie coraz zbiega do rozkładu normalnego.
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=.8\textwidth]{../Obrazy/Spr2/ctg.png} 
 \caption{Wykres kształtu rozkładu normalnego w zależności od liczby wygenerowanych próbek}
 \label{fig:ctg}
+\end{figure}
+
+
+\begin{figure}
+\centering
+\begin{subfigure}{.3\textwidth}
+    \centering
+   	\includegraphics[width=\textwidth]{../Obrazy/Spr2/ctg1.png} 
+\end{subfigure}%
+\begin{subfigure}{.3\textwidth}
+  	\centering
+	\includegraphics[width=\textwidth]{../Obrazy/Spr2/ctg2.png} 
+\end{subfigure}
+\begin{subfigure}{.3\textwidth}
+  	\centering
+	\includegraphics[width=\textwidth]{../Obrazy/Spr2/ctg3.png} 
+\end{subfigure}
+\caption{A figure with two subfigures}
+\label{fig:test}
 \end{figure}
 
 

@@ -1,0 +1,31 @@
+\begin{thebibliography}{1}
+
+\bibitem{matplotlib}
+Dokumentacja biblioteki matplotlib.
+\newblock \url{https://matplotlib.org/contents.html}, 03 2019.
+
+\bibitem{numpy}
+Dokumentacja biblioteki numpy.
+\newblock \url{https://docs.scipy.org/doc/}, 03 2019.
+
+\bibitem{python3}
+Dokumentacja python 3.7.1.
+\newblock \url{https://docs.python.org/release/3.7.1/}, 03 2019.
+
+\bibitem{wstep2001jakubowski}
+J.~Jakubowski,  R.~Sztencel.
+\newblock {\em Wstęp do teorii prawdopodobieństwa.}
+\newblock Wydawnictwo SCRIPT, 2001.
+
+\bibitem{rachunek2006jakubowski}
+J.~Jakubowski,  R.~Sztencel.
+\newblock {\em Rachunek prawdopodobieństwa dla (prawie) wszystkich.}
+\newblock Wydawnictwo SCRIPT, 2006.
+
+\bibitem{wachelLab7}
+P.~Wachel.
+\newblock Instrukcja laboratoryjna -- ortogonalny estymator funkcji regresji.
+\newblock \url{http://pawel.wachel.staff.iiar.pwr.wroc.pl/ModelowanieLab7.pdf},
+  05 2019.
+
+\end{thebibliography}
