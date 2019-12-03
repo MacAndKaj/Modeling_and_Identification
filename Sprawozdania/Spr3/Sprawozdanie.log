@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2019/dev/Debian) (preloaded format=pdflatex 2019.4.27)  2 JUN 2019 19:53
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2019/dev/Debian) (preloaded format=pdflatex 2019.4.27)  2 JUN 2019 23:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -449,12 +449,12 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 21.
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-<../Obrazy/Spr3/MIMO.png, id=72, 236.885pt x 115.43124pt>
+<../Obrazy/Spr3/MIMO.png, id=76, 236.885pt x 115.43124pt>
 File: ../Obrazy/Spr3/MIMO.png Graphic file (type png)
 <use ../Obrazy/Spr3/MIMO.png>
 Package pdftex.def Info: ../Obrazy/Spr3/MIMO.png  used on input line 32.
 (pdftex.def)             Requested size: 217.66211pt x 106.06769pt.
-<../Obrazy/Spr3/MISO.png, id=74, 282.05376pt x 119.44624pt>
+<../Obrazy/Spr3/MISO.png, id=78, 282.05376pt x 119.44624pt>
 File: ../Obrazy/Spr3/MISO.png Graphic file (type png)
 <use ../Obrazy/Spr3/MISO.png>
 Package pdftex.def Info: ../Obrazy/Spr3/MISO.png  used on input line 39.
@@ -473,38 +473,38 @@ Overfull \hbox (15.74013pt too wide) in paragraph at lines 46--46
 w nie-
  []
 
-<../Obrazy/Spr3/z1_pierwszy.png, id=96, 560.0925pt x 402.5439pt>
+<../Obrazy/Spr3/z1_pierwszy.png, id=100, 560.0925pt x 402.5439pt>
 File: ../Obrazy/Spr3/z1_pierwszy.png Graphic file (type png)
 <use ../Obrazy/Spr3/z1_pierwszy.png>
 Package pdftex.def Info: ../Obrazy/Spr3/z1_pierwszy.png  used on input line 64.
 
 (pdftex.def)             Requested size: 386.95897pt x 278.12411pt.
-<../Obrazy/Spr3/cosinus.png, id=100, 1226.4219pt x 603.4545pt>
+<../Obrazy/Spr3/cosinus.png, id=104, 1226.4219pt x 603.4545pt>
 File: ../Obrazy/Spr3/cosinus.png Graphic file (type png)
 <use ../Obrazy/Spr3/cosinus.png>
 Package pdftex.def Info: ../Obrazy/Spr3/cosinus.png  used on input line 80.
 (pdftex.def)             Requested size: 483.69687pt x 237.9982pt.
 [2 <../Obrazy/Spr3/z1_pierwszy.png>]
-<../Obrazy/Spr3/valid_L.png, id=121, 462.528pt x 346.896pt>
+<../Obrazy/Spr3/valid_L.png, id=125, 462.528pt x 346.896pt>
 File: ../Obrazy/Spr3/valid_L.png Graphic file (type png)
 <use ../Obrazy/Spr3/valid_L.png>
 Package pdftex.def Info: ../Obrazy/Spr3/valid_L.png  used on input line 104.
 (pdftex.def)             Requested size: 386.95897pt x 290.23143pt.
  [3 <../Obrazy/Spr3/cosinus.png>]
-<../Obrazy/Spr3/est_best_L.png, id=131, 462.528pt x 346.896pt>
+<../Obrazy/Spr3/est_best_L.png, id=135, 462.528pt x 346.896pt>
 File: ../Obrazy/Spr3/est_best_L.png Graphic file (type png)
 <use ../Obrazy/Spr3/est_best_L.png>
 Package pdftex.def Info: ../Obrazy/Spr3/est_best_L.png  used on input line 111.
 
 (pdftex.def)             Requested size: 386.95897pt x 290.23143pt.
  [4 <../Obrazy/Spr3/valid_L.png> <../Obrazy/Spr3/est_best_L.png>]
-<../Obrazy/Spr3/cauchy_porownanie_err.png, id=139, 1387.584pt x 675.0018pt>
+<../Obrazy/Spr3/cauchy_porownanie_err.png, id=143, 1387.584pt x 675.0018pt>
 File: ../Obrazy/Spr3/cauchy_porownanie_err.png Graphic file (type png)
 <use ../Obrazy/Spr3/cauchy_porownanie_err.png>
 Package pdftex.def Info: ../Obrazy/Spr3/cauchy_porownanie_err.png  used on inpu
 t line 126.
 (pdftex.def)             Requested size: 483.69687pt x 235.2963pt.
-<../Obrazy/Spr3/cauchy_porownanie_est.png, id=140, 1387.584pt x 675.0018pt>
+<../Obrazy/Spr3/cauchy_porownanie_est.png, id=144, 1387.584pt x 675.0018pt>
 File: ../Obrazy/Spr3/cauchy_porownanie_est.png Graphic file (type png)
 <use ../Obrazy/Spr3/cauchy_porownanie_est.png>
 Package pdftex.def Info: ../Obrazy/Spr3/cauchy_porownanie_est.png  used on inpu
@@ -517,20 +517,20 @@ Overfull \hbox (4.01006pt too wide) in paragraph at lines 140--140
 SO 
  []
 
-<../Obrazy/Spr3/przyklad2.png, id=157, 588.2778pt x 393.8715pt>
+<../Obrazy/Spr3/przyklad2.png, id=161, 588.2778pt x 393.8715pt>
 File: ../Obrazy/Spr3/przyklad2.png Graphic file (type png)
 <use ../Obrazy/Spr3/przyklad2.png>
 Package pdftex.def Info: ../Obrazy/Spr3/przyklad2.png  used on input line 164.
 (pdftex.def)             Requested size: 483.69687pt x 323.86018pt.
 [7]
-<../Obrazy/Spr3/maceirze_kow_a.png, id=170, 768.2301pt x 517.4532pt>
+<../Obrazy/Spr3/maceirze_kow_a.png, id=174, 768.2301pt x 517.4532pt>
 File: ../Obrazy/Spr3/maceirze_kow_a.png Graphic file (type png)
 <use ../Obrazy/Spr3/maceirze_kow_a.png>
 Package pdftex.def Info: ../Obrazy/Spr3/maceirze_kow_a.png  used on input line 
 185.
 (pdftex.def)             Requested size: 483.69687pt x 325.79984pt.
  [8 <../Obrazy/Spr3/przyklad2.png>]
-<../Obrazy/Spr3/err_est_a.png, id=181, 1387.584pt x 675.0018pt>
+<../Obrazy/Spr3/err_est_a.png, id=185, 1387.584pt x 675.0018pt>
 File: ../Obrazy/Spr3/err_est_a.png Graphic file (type png)
 <use ../Obrazy/Spr3/err_est_a.png>
 Package pdftex.def Info: ../Obrazy/Spr3/err_est_a.png  used on input line 213.
@@ -542,7 +542,7 @@ Overfull \hbox (2.72922pt too wide) in paragraph at lines 219--219
 zy
  []
 
-<../Obrazy/Spr3/PRZYKLAD3.png, id=198, 632.3625pt x 401.0985pt>
+<../Obrazy/Spr3/PRZYKLAD3.png, id=202, 632.3625pt x 401.0985pt>
 File: ../Obrazy/Spr3/PRZYKLAD3.png Graphic file (type png)
 <use ../Obrazy/Spr3/PRZYKLAD3.png>
 Package pdftex.def Info: ../Obrazy/Spr3/PRZYKLAD3.png  used on input line 235.
@@ -560,95 +560,110 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 282.
 
+<../Obrazy/Spr3/maceirze_kow_a_skor.png, id=219, 698.1282pt x 531.9072pt>
+File: ../Obrazy/Spr3/maceirze_kow_a_skor.png Graphic file (type png)
+<use ../Obrazy/Spr3/maceirze_kow_a_skor.png>
+Package pdftex.def Info: ../Obrazy/Spr3/maceirze_kow_a_skor.png  used on input 
+line 292.
+(pdftex.def)             Requested size: 386.95897pt x 294.8224pt.
 [12]
-<../Obrazy/Spr3/dynamiczny.png, id=227, 610.28pt x 310.15875pt>
+<../Obrazy/Spr3/blad_mnk_sigma_z.png, id=234, 828.2142pt x 609.9588pt>
+File: ../Obrazy/Spr3/blad_mnk_sigma_z.png Graphic file (type png)
+<use ../Obrazy/Spr3/blad_mnk_sigma_z.png>
+Package pdftex.def Info: ../Obrazy/Spr3/blad_mnk_sigma_z.png  used on input lin
+e 310.
+(pdftex.def)             Requested size: 483.69687pt x 356.23346pt.
+ [13 <../Obrazy/Spr3/maceirze_kow_a_skor.png>] [14 <../Obrazy/Spr3/blad_mnk_sig
+ma_z.png>]
+<../Obrazy/Spr3/dynamiczny.png, id=251, 610.28pt x 310.15875pt>
 File: ../Obrazy/Spr3/dynamiczny.png Graphic file (type png)
 <use ../Obrazy/Spr3/dynamiczny.png>
-Package pdftex.def Info: ../Obrazy/Spr3/dynamiczny.png  used on input line 302.
+Package pdftex.def Info: ../Obrazy/Spr3/dynamiczny.png  used on input line 327.
 
 (pdftex.def)             Requested size: 217.66211pt x 110.6206pt.
-<../Obrazy/Spr3/dynamiczny_SISO.png, id=228, 540.0175pt x 245.91875pt>
+<../Obrazy/Spr3/dynamiczny_SISO.png, id=252, 540.0175pt x 245.91875pt>
 File: ../Obrazy/Spr3/dynamiczny_SISO.png Graphic file (type png)
 <use ../Obrazy/Spr3/dynamiczny_SISO.png>
 Package pdftex.def Info: ../Obrazy/Spr3/dynamiczny_SISO.png  used on input line
- 309.
+ 334.
 (pdftex.def)             Requested size: 251.52443pt x 114.53865pt.
 
-Overfull \hbox (14.676pt too wide) in paragraph at lines 309--310
+Overfull \hbox (14.676pt too wide) in paragraph at lines 334--335
  [][] 
  []
 
-<../Obrazy/Spr3/odpowiedz_impulsowa.png, id=230, 462.528pt x 346.896pt>
+<../Obrazy/Spr3/odpowiedz_impulsowa.png, id=254, 462.528pt x 346.896pt>
 File: ../Obrazy/Spr3/odpowiedz_impulsowa.png Graphic file (type png)
 <use ../Obrazy/Spr3/odpowiedz_impulsowa.png>
 Package pdftex.def Info: ../Obrazy/Spr3/odpowiedz_impulsowa.png  used on input 
-line 329.
+line 354.
 (pdftex.def)             Requested size: 483.69687pt x 362.79062pt.
-[13 <../Obrazy/Spr3/dynamiczny.png> <../Obrazy/Spr3/dynamicznY_SISO.png>]
-<../Obrazy/Spr3/dynamiczny_b.png, id=246, 462.528pt x 346.896pt>
+[15 <../Obrazy/Spr3/dynamiczny.png> <../Obrazy/Spr3/dynamicznY_SISO.png>]
+<../Obrazy/Spr3/dynamiczny_b.png, id=269, 462.528pt x 346.896pt>
 File: ../Obrazy/Spr3/dynamiczny_b.png Graphic file (type png)
 <use ../Obrazy/Spr3/dynamiczny_b.png>
-Package pdftex.def Info: ../Obrazy/Spr3/dynamiczny_b.png  used on input line 34
-4.
+Package pdftex.def Info: ../Obrazy/Spr3/dynamiczny_b.png  used on input line 36
+9.
 (pdftex.def)             Requested size: 483.69687pt x 362.79062pt.
 
-[14 <../Obrazy/Spr3/odpowiedz_impulsowa.png>]
-<../Obrazy/Spr3/odp_norm.png, id=260, 730.6497pt x 472.6458pt>
+[16 <../Obrazy/Spr3/odpowiedz_impulsowa.png>]
+<../Obrazy/Spr3/odp_norm.png, id=283, 730.6497pt x 472.6458pt>
 File: ../Obrazy/Spr3/odp_norm.png Graphic file (type png)
 <use ../Obrazy/Spr3/odp_norm.png>
-Package pdftex.def Info: ../Obrazy/Spr3/odp_norm.png  used on input line 364.
+Package pdftex.def Info: ../Obrazy/Spr3/odp_norm.png  used on input line 389.
 (pdftex.def)             Requested size: 386.95897pt x 250.32077pt.
- [15 <../Obrazy/Spr3/dynamiczny_b.png>]
-<../Obrazy/Spr3/dynamiczny_err_mnk.png, id=270, 462.528pt x 346.896pt>
+ [17 <../Obrazy/Spr3/dynamiczny_b.png>]
+<../Obrazy/Spr3/dynamiczny_err_mnk.png, id=293, 462.528pt x 346.896pt>
 File: ../Obrazy/Spr3/dynamiczny_err_mnk.png Graphic file (type png)
 <use ../Obrazy/Spr3/dynamiczny_err_mnk.png>
 Package pdftex.def Info: ../Obrazy/Spr3/dynamiczny_err_mnk.png  used on input l
-ine 371.
+ine 396.
 (pdftex.def)             Requested size: 386.95897pt x 290.23143pt.
-<../Obrazy/Spr3/dynamiczny_err_mnk_porownanie.png, id=271, 462.528pt x 346.896p
+<../Obrazy/Spr3/dynamiczny_err_mnk_porownanie.png, id=294, 462.528pt x 346.896p
 t>
 File: ../Obrazy/Spr3/dynamiczny_err_mnk_porownanie.png Graphic file (type png)
 <use ../Obrazy/Spr3/dynamiczny_err_mnk_porownanie.png>
 Package pdftex.def Info: ../Obrazy/Spr3/dynamiczny_err_mnk_porownanie.png  used
- on input line 382.
-(pdftex.def)             Requested size: 386.95897pt x 290.23143pt.
- [16 <../Obrazy/Spr3/odp_norm.png> <../Obrazy/Spr3/dynamiczny_err_mnk.png>]
-<../Obrazy/Spr3/err_uogolniony.png, id=282, 462.528pt x 346.896pt>
+ on input line 407.
+(pdftex.def)             Requested size: 483.69687pt x 362.79062pt.
+ [18 <../Obrazy/Spr3/odp_norm.png> <../Obrazy/Spr3/dynamiczny_err_mnk.png>]
+<../Obrazy/Spr3/err_uogolniony.png, id=305, 462.528pt x 346.896pt>
 File: ../Obrazy/Spr3/err_uogolniony.png Graphic file (type png)
 <use ../Obrazy/Spr3/err_uogolniony.png>
 Package pdftex.def Info: ../Obrazy/Spr3/err_uogolniony.png  used on input line 
-402.
+427.
 (pdftex.def)             Requested size: 386.95897pt x 290.23143pt.
- [17 <../Obrazy/Spr3/dynamiczny_err_mnk_porownanie.png>]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 410.
+ [19 <../Obrazy/Spr3/dynamiczny_err_mnk_porownanie.png>] [20 <../Obrazy/Spr3/er
+r_uogolniony.png>]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 436.
 
-
-(/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
+ (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 410.
- (./Sprawozdanie.bbl
-LaTeX Font Info:    Try loading font information for T1+cmtt on input line 5.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 436.
 
-(/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
+(./Sprawozdanie.bbl
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 5.
+ (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 ))
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 419.
- [18 <../Obrazy/Spr3/err_uogolniony.png>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 419.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 448.
+
+[21]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 448.
  (./Sprawozdanie.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 419.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 419.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 448.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 448.
 Package rerunfilecheck Info: File `Sprawozdanie.out' has not changed.
-(rerunfilecheck)             Checksum: 99743C97F8537CB6D8251EDB4F104E6E;1459.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 419.
+(rerunfilecheck)             Checksum: 60B42FBEFB86A7B4A9F0979648AA94BA;1543.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 448.
  ) 
 Here is how much of TeX's memory you used:
- 7619 strings out of 494485
- 109230 string characters out of 6175563
- 215434 words of memory out of 5000000
- 11073 multiletter control sequences out of 15000+600000
+ 7640 strings out of 494485
+ 109754 string characters out of 6175563
+ 217711 words of memory out of 5000000
+ 11085 multiletter control sequences out of 15000+600000
  23915 words of font info for 66 fonts, out of 8000000 for 9000
  56 hyphenation exceptions out of 8191
  28i,9n,32p,485b,338s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -673,10 +688,10 @@ e/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf
 nts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type
 1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
 ic/amsfonts/cm/cmsy8.pfb>
-Output written on Sprawozdanie.pdf (18 pages, 919789 bytes).
+Output written on Sprawozdanie.pdf (21 pages, 992510 bytes).
 PDF statistics:
- 661 PDF objects out of 1000 (max. 8388607)
- 316 compressed objects within 4 object streams
- 80 named destinations out of 1000 (max. 500000)
- 229 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 690 PDF objects out of 1000 (max. 8388607)
+ 338 compressed objects within 4 object streams
+ 87 named destinations out of 1000 (max. 500000)
+ 247 words of extra memory for PDF output out of 10000 (max. 10000000)
 

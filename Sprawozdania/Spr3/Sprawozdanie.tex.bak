@@ -279,12 +279,37 @@ cov\{Z_{j},Z_{k}\} = \begin{cases} Var\{\varepsilon_{k}\} + b_{1}^{2}Var\{\varep
 \end{bmatrix}
 \end{equation}
 
-\subsection{Kowariancja estymatora $\hat{a}_{N}$}
+\subsection{Macierz kowariancji estymatora $\hat{a}_{N}$}
+Podobnie jak w przypadku nieskorelowanych zakłóceń z części poprzedniej, tak i w tym wypadku można wyznaczyć macierz kowariancji skonstruowanego estymatora.
+Wyrażana jest ona jako iloczyn \ref{eq:skor_est_mac_kow}, a jej graficzna forma, dla różnych wartości współczynnika $b_{1}$, odpowiadającego za zależności sygnału od swojej poprzedniej wartości, został przedstawiony na rysunku \ref{fig:mac_kow_skor}.
+
+\begin{equation}\label{eq:skor_est_mac_kow}
+cov\{\hat{a}_{N}\}=(\boldsymbol{X}_{N}^{T}\boldsymbol{X}_{N})^{-1}\boldsymbol{X}_{N}^{T}\boldsymbol{R}\boldsymbol{X}_{N}(\boldsymbol{X}_{N}^{T}\boldsymbol{X}_{N})^{-1}
+\end{equation}
+
 \begin{figure}[H]
 \centering
+\includegraphics[width=.8\textwidth]{../Obrazy/Spr3/maceirze_kow_a_skor.png} 
+\caption{Macierze kowariancji estymatora dla różnych wartości $b_{1}$}
+\label{fig:mac_kow_skor}
+\end{figure}
 
-\caption{Opis}
-\label{fig:zdjecie}
+\subsection{Błąd estymatora}
+Na koniec wyznaczono błędy jakimi cechuje się estymator w zależności od ilości próbek, na podstawie których estymuje poszukiwane parametry.
+Błąd wyznaczany jest z zależności \ref{eq:est_blad_mnk}.
+Wykresy błędu dla 4 różnych wartości $\sigma_{\epsilon}^{2}$ przedstawiono na rysunku \ref{fig:blad_mnk_sigma_z}.
+Wariancja zakłócenia ma niekwestionowany wpływ na działanie estymatora.
+Najważniejszą informacją, która potwierdza pozostałe badania jest fakt, że niezależnie od wariancji zakłócenia błąd zbiega do zera wraz ze wzrostem próbek wyjściowych, na podstawie których konstruuje się estymator.
+
+\begin{equation}\label{eq:est_blad_mnk}
+Err\{\hat{a}_{N}\}=\frac{1}{L}\sum_{l=1}^{L}||\hat{a}_{N}^{[l]}-a^{*}||^{2}
+\end{equation}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{../Obrazy/Spr3/blad_mnk_sigma_z.png} 
+\caption{Błędy estymatora w funkcji N dla różnych wartości wariancji zakłócenia.}
+\label{fig:blad_mnk_sigma_z}
 \end{figure}
 
 
@@ -379,7 +404,7 @@ Z_{N}=e_{n}+\alpha e_{n-1}
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=.8\textwidth]{../Obrazy/Spr3/dynamiczny_err_mnk_porownanie.png} 
+\includegraphics[width=\textwidth]{../Obrazy/Spr3/dynamiczny_err_mnk_porownanie.png} 
 \caption{Porównanie błędów dla dwóch rodzajów zakłóceń.}
 \label{fig:blad_mnk_porownanie}
 \end{figure}
@@ -405,9 +430,13 @@ Wykres wygląda podobnie do tego przedstawionego na rysunku \ref{fig:blad_mnk_po
 \end{figure}
 
 
-\section{Wnioski}
+\newpage
+\section{Wnioski końcowe}
 \begin{itemize}
-\item Identyfikacja modelu w sytuacji, w której brak jakichkolwiek informacji o badanym obiekcie...
+\item Identyfikacja parametrów modelu na podstawie pomiarów wyjściowych jest zadaniem, które zazwyczaj obarczone musi być błędem z uwagi na zakłócenia, które praktycznie zawsze pojawiają się podczas pomiaru.
+Metoda najmniejszych kwadratów pozwalająca konstruować estymatory parametrów nieznanego systemu dość dobrze radzi sobie w sytuacjach, gdy system jest statyczny i w takiej sytuacji potrafi sobie radzić z różnymi zakłóceniami.
+\item Dla systemów dynamicznych klasyczna metoda najmniejszych kwadratów nie wystarcza. W takim przypadku może zostać użyta metoda uogólniona, znacząco ograniczająca błędy estymatora. Jednak nie jest to rozwiązanie najlepsze.
+\item Najbardziej znaczącym aspektem, wpływającym na właściwie każdy aspekt MNK jest korelacja sygnału. Odpowiednie zabezpieczenie na wypadek korelacji sygnałów jest więc kluczowym elementem optymalnej metody estymacji parametrów identyfikowanego systemu.
 \end{itemize}
 
 

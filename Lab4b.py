@@ -9,7 +9,7 @@ from Lab1 import Example
 from Lab3_1 import get_u
 from Lab4 import empiric_distribution, D_N
 
-file = open('ModelowanieLab4Data.txt', 'r')
+
 
 
 class ExNormal(Example):
@@ -39,6 +39,7 @@ class ExCauchy(Example):
 
 
 if __name__ == '__main__':
+    file = open('ModelowanieLab4Data.txt', 'r')
     numbers = []
     for i in file:
         numbers.append(float(i))
